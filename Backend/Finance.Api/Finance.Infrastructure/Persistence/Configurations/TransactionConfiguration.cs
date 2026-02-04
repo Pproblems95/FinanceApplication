@@ -14,16 +14,19 @@ namespace Finance.Infrastructure.Persistence.Configurations
             builder.ToTable("transactions");
 
             builder.HasKey(t => t.Id);
-            builder.Property(t => t.UserId).IsRequired();
-            builder.Property(t => t.Amount).IsRequired().HasColumnType("decimal(18,2)");
+
+            builder.Property(t => t.Amount).IsRequired().HasColumnType("numeric(18,2)");
             builder.Property(t => t.Date).IsRequired();
             builder.Property(t => t.Description).HasMaxLength(500);
             builder.Property(t => t.Category).HasMaxLength(100);
-            builder.Property(t => t.CreatedAt).IsRequired().HasDefaultValue("GETDATE()");
+            builder.Property(t => t.CreatedAt).IsRequired().HasDefaultValueSql("now()");
             builder.Property(t => t.UpdatedAt);
-            builder.Property(t => t.User).IsRequired();
 
-            
+            builder.HasOne(t => t.User)
+                .WithMany(u => u.Transactions)
+                .HasForeignKey(t => t.UserId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

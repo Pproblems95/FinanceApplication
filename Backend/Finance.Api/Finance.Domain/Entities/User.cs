@@ -15,6 +15,7 @@ namespace Finance.Domain.Entities
         public DateTime CreatedAt { get; set; }
         public bool IsActive { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
+        public ICollection<Goal> Goals { get; set; }
 
     }
 }

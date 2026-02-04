@@ -19,9 +19,8 @@ namespace Finance.Infrastructure.Persistence.Configurations
             builder.Property(u => u.Username).IsRequired().HasMaxLength(100);
             builder.Property(u => u.Email).IsRequired().HasMaxLength(100);
             builder.Property(u => u.HashedPassword).IsRequired();
-            builder.Property(u => u.CreatedAt).IsRequired().HasDefaultValueSql("GETDATE()");
+            builder.Property(u => u.CreatedAt).IsRequired().HasDefaultValueSql("now()");
             builder.Property(u => u.IsActive).IsRequired().HasDefaultValue(true);
-            builder.Property(u => u.Transactions);
 
             builder.HasIndex(u => u.Email).IsUnique();
         }
