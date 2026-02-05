@@ -27,6 +27,39 @@ namespace Finance.Infrastructure.Persistence.Configurations
                 .HasForeignKey(t => t.UserId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasData(
+                new Transaction
+                {
+                    Id = 1,
+                    UserId = 1,
+                    Amount = 50.00,
+                    Date = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc),
+                    Description = "Suscripción Netflix",
+                    Category = "Entretenimiento",
+                    CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Transaction
+                {
+                    Id = 2,
+                    UserId = 2,
+                    Amount = 1200.50,
+                    Date = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc),
+                    Description = "Pago de Renta",
+                    Category = "Vivienda",
+                    CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Transaction
+                {
+                    Id = 3,
+                    UserId = 3,
+                    Amount = 15.75,
+                    Date = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc),
+                    Description = "Café Starbucks",
+                    Category = "Alimentación",
+                    CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc)
+                }
+            );
         }
     }
 }

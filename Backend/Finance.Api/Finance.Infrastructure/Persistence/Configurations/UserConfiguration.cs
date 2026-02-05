@@ -23,6 +23,42 @@ namespace Finance.Infrastructure.Persistence.Configurations
             builder.Property(u => u.IsActive).IsRequired().HasDefaultValue(true);
 
             builder.HasIndex(u => u.Email).IsUnique();
+
+            builder.HasData(
+                new User
+                {
+                    Id = 1,
+                    Name = "John",
+                    LastName = "Doe",
+                    Username = "jdoe",
+                    Email = "john@example.com",
+                    HashedPassword = "password123", 
+                    IsActive = true,
+                    CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new User
+                {
+                    Id = 2,
+                    Name = "Jane",
+                    LastName = "Smith",
+                    Username = "jsmith",
+                    Email = "jane@example.com",
+                    HashedPassword = "password456",
+                    IsActive = true,
+                    CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new User
+                {
+                    Id = 3,
+                    Name = "Alice",
+                    LastName = "Johnson",
+                    Username = "ajohnson",
+                    Email = "alice@example.com",
+                    HashedPassword = "password789",
+                    IsActive = true,
+                    CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc)
+                }
+            );
         }
     }
 }

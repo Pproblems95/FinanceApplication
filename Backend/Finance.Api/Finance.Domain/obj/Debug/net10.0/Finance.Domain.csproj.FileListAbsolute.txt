@@ -1,0 +1,15 @@
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\bin\Debug\net10.0\Finance.Domain.deps.json
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\bin\Debug\net10.0\Finance.Domain.runtimeconfig.json
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\bin\Debug\net10.0\Finance.Domain.dll
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\bin\Debug\net10.0\Finance.Domain.pdb
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\obj\Debug\net10.0\Finance.Domain.csproj.AssemblyReference.cache
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\obj\Debug\net10.0\Finance.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\obj\Debug\net10.0\Finance.Domain.AssemblyInfoInputs.cache
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\obj\Debug\net10.0\Finance.Domain.AssemblyInfo.cs
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\obj\Debug\net10.0\Finance.Domain.csproj.CoreCompileInputs.cache
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\obj\Debug\net10.0\Finance.Domain.sourcelink.json
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\obj\Debug\net10.0\Finance.Domain.dll
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\obj\Debug\net10.0\refint\Finance.Domain.dll
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\obj\Debug\net10.0\Finance.Domain.pdb
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\obj\Debug\net10.0\Finance.Domain.genruntimeconfig.cache
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Domain\obj\Debug\net10.0\ref\Finance.Domain.dll
