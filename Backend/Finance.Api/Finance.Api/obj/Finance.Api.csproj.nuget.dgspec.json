@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\Finance.Api.csproj": {}
+    "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Api\\Finance.Api.csproj": {}
   },
   "projects": {
-    "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\Finance.Api.csproj": {
+    "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Api\\Finance.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\Finance.Api.csproj",
+        "projectUniqueName": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Api\\Finance.Api.csproj",
         "projectName": "Finance.Api",
-        "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\Finance.Api.csproj",
-        "packagesPath": "C:\\Users\\blakd\\.nuget\\packages\\",
-        "outputPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\obj\\",
+        "projectPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Api\\Finance.Api.csproj",
+        "packagesPath": "C:\\Users\\ferra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\blakd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ferra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,11 +32,11 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj": {
-                "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj"
+              "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj": {
+                "projectPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj"
               },
-              "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj": {
-                "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj"
+              "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj"
               }
             }
           }
@@ -509,20 +509,20 @@
         }
       }
     },
-    "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj": {
+    "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj",
+        "projectUniqueName": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj",
         "projectName": "Finance.Application",
-        "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj",
-        "packagesPath": "C:\\Users\\blakd\\.nuget\\packages\\",
-        "outputPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\obj\\",
+        "projectPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj",
+        "packagesPath": "C:\\Users\\ferra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\blakd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ferra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -537,8 +537,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj": {
-                "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj"
+              "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj": {
+                "projectPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj"
               }
             }
           }
@@ -864,20 +864,20 @@
         }
       }
     },
-    "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj": {
+    "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj",
         "projectName": "Finance.Domain",
-        "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj",
-        "packagesPath": "C:\\Users\\blakd\\.nuget\\packages\\",
-        "outputPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\obj\\",
+        "projectPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj",
+        "packagesPath": "C:\\Users\\ferra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\blakd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ferra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -1215,20 +1215,20 @@
         }
       }
     },
-    "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj": {
+    "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj",
         "projectName": "Finance.Infrastructure",
-        "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\blakd\\.nuget\\packages\\",
-        "outputPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\ferra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\blakd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ferra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -1243,8 +1243,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj": {
-                "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj"
+              "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj": {
+                "projectPath": "C:\\Users\\ferra\\OneDrive\\Desktop\\a\\FinanceApplication\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj"
               }
             }
           }
