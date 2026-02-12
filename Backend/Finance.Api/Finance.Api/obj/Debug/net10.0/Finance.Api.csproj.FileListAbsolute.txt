@@ -127,3 +127,4 @@ C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Financ
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\obj\Debug\net10.0\Finance.Api.pdb
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\obj\Debug\net10.0\Finance.Api.genruntimeconfig.cache
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\obj\Debug\net10.0\ref\Finance.Api.dll
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
