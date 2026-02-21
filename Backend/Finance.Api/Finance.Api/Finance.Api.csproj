@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -17,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Finance.Application\Finance.Application.csproj" />
-    <ProjectReference Include="..\Finance.Infrastructure\Finance.Infrastructure.csproj" />
+    <ProjectReference Include="..\Finance.Infrastructure\Finance.Data.csproj" />
   </ItemGroup>
 
 </Project>

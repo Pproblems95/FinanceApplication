@@ -35,8 +35,8 @@
               "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj": {
                 "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\Finance.Application.csproj"
               },
-              "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj": {
-                "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj"
+              "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Data.csproj": {
+                "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Data.csproj"
               }
             }
           }
@@ -57,6 +57,10 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[16.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[10.0.2, )"
@@ -559,6 +563,10 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[16.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -910,6 +918,10 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[16.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -1215,12 +1227,12 @@
         }
       }
     },
-    "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj": {
+    "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj",
-        "projectName": "Finance.Infrastructure",
-        "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Data.csproj",
+        "projectName": "Finance.Data",
+        "projectPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Data.csproj",
         "packagesPath": "C:\\Users\\blakd\\.nuget\\packages\\",
         "outputPath": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
@@ -1265,6 +1277,10 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[16.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

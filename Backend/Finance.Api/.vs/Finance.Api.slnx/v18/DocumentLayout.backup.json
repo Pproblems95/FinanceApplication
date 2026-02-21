@@ -7,60 +7,64 @@
       "RelativeMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|solutionrelative:finance.domain\\interfaces\\itransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|solutionrelative:finance.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.domain\\entities\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|solutionrelative:finance.domain\\entities\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.domain\\entities\\goal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|solutionrelative:finance.domain\\entities\\goal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DED3A256-AA8F-4C1A-3B06-6C6E48A6059A}|Finance.Application\\Finance.Application.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.application\\dtos\\transactiondtos\\transactionresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DED3A256-AA8F-4C1A-3B06-6C6E48A6059A}|Finance.Application\\Finance.Application.csproj|solutionrelative:finance.application\\dtos\\transactiondtos\\transactionresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DED3A256-AA8F-4C1A-3B06-6C6E48A6059A}|Finance.Application\\Finance.Application.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.application\\helper\\mappingprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DED3A256-AA8F-4C1A-3B06-6C6E48A6059A}|Finance.Application\\Finance.Application.csproj|solutionrelative:finance.application\\helper\\mappingprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DED3A256-AA8F-4C1A-3B06-6C6E48A6059A}|Finance.Application\\Finance.Application.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.application\\dtos\\transactiondtos\\transactioncreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DED3A256-AA8F-4C1A-3B06-6C6E48A6059A}|Finance.Application\\Finance.Application.csproj|solutionrelative:finance.application\\dtos\\transactiondtos\\transactioncreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DED3A256-AA8F-4C1A-3B06-6C6E48A6059A}|Finance.Application\\Finance.Application.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.application\\dtos\\transactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DED3A256-AA8F-4C1A-3B06-6C6E48A6059A}|Finance.Application\\Finance.Application.csproj|solutionrelative:finance.application\\dtos\\transactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49657418-CE04-DEB8-16B7-D13ED889CB3E}|Finance.Infrastructure\\Finance.Infrastructure.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.infrastructure\\repositories\\transactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49657418-CE04-DEB8-16B7-D13ED889CB3E}|Finance.Infrastructure\\Finance.Infrastructure.csproj|solutionrelative:finance.infrastructure\\repositories\\transactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B59A4F79-0449-A1C4-02DA-34C611227726}|Finance.Infrastructure\\Finance.Data.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.infrastructure\\repositories\\transactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B59A4F79-0449-A1C4-02DA-34C611227726}|Finance.Infrastructure\\Finance.Data.csproj|solutionrelative:finance.infrastructure\\repositories\\transactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC065EEF-F701-226F-1563-84EEAD5730AF}|Finance.Api\\Finance.Api.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.api\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC065EEF-F701-226F-1563-84EEAD5730AF}|Finance.Api\\Finance.Api.csproj|solutionrelative:finance.api\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49657418-CE04-DEB8-16B7-D13ED889CB3E}|Finance.Infrastructure\\Finance.Infrastructure.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.infrastructure\\persistence\\financedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49657418-CE04-DEB8-16B7-D13ED889CB3E}|Finance.Infrastructure\\Finance.Infrastructure.csproj|solutionrelative:finance.infrastructure\\persistence\\financedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.domain\\entities\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|solutionrelative:finance.domain\\entities\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC065EEF-F701-226F-1563-84EEAD5730AF}|Finance.Api\\Finance.Api.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC065EEF-F701-226F-1563-84EEAD5730AF}|Finance.Api\\Finance.Api.csproj|solutionrelative:finance.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49657418-CE04-DEB8-16B7-D13ED889CB3E}|Finance.Infrastructure\\Finance.Infrastructure.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.infrastructure\\persistence\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49657418-CE04-DEB8-16B7-D13ED889CB3E}|Finance.Infrastructure\\Finance.Infrastructure.csproj|solutionrelative:finance.infrastructure\\persistence\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B59A4F79-0449-A1C4-02DA-34C611227726}|Finance.Infrastructure\\Finance.Data.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.infrastructure\\persistence\\financedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B59A4F79-0449-A1C4-02DA-34C611227726}|Finance.Infrastructure\\Finance.Data.csproj|solutionrelative:finance.infrastructure\\persistence\\financedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49657418-CE04-DEB8-16B7-D13ED889CB3E}|Finance.Infrastructure\\Finance.Infrastructure.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.infrastructure\\finance.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{49657418-CE04-DEB8-16B7-D13ED889CB3E}|Finance.Infrastructure\\Finance.Infrastructure.csproj|solutionrelative:finance.infrastructure\\finance.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{B38E0CC6-2277-4FBC-B486-B6D8567F83A7}|Finance.IoC\\Finance.IoC.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.ioc\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B38E0CC6-2277-4FBC-B486-B6D8567F83A7}|Finance.IoC\\Finance.IoC.csproj|solutionrelative:finance.ioc\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|solutionrelative:finance.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC065EEF-F701-226F-1563-84EEAD5730AF}|Finance.Api\\Finance.Api.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{DC065EEF-F701-226F-1563-84EEAD5730AF}|Finance.Api\\Finance.Api.csproj|solutionrelative:finance.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49657418-CE04-DEB8-16B7-D13ED889CB3E}|Finance.Infrastructure\\Finance.Infrastructure.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.infrastructure\\persistence\\configurations\\transactionconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49657418-CE04-DEB8-16B7-D13ED889CB3E}|Finance.Infrastructure\\Finance.Infrastructure.csproj|solutionrelative:finance.infrastructure\\persistence\\configurations\\transactionconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.domain\\finance.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{974199A7-0F2E-A54F-B9D7-5F7EEE777161}|Finance.Domain\\Finance.Domain.csproj|solutionrelative:finance.domain\\finance.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B59A4F79-0449-A1C4-02DA-34C611227726}|Finance.Infrastructure\\Finance.Data.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.infrastructure\\finance.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B59A4F79-0449-A1C4-02DA-34C611227726}|Finance.Infrastructure\\Finance.Data.csproj|solutionrelative:finance.infrastructure\\finance.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B59A4F79-0449-A1C4-02DA-34C611227726}|Finance.Infrastructure\\Finance.Data.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.infrastructure\\persistence\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B59A4F79-0449-A1C4-02DA-34C611227726}|Finance.Infrastructure\\Finance.Data.csproj|solutionrelative:finance.infrastructure\\persistence\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B59A4F79-0449-A1C4-02DA-34C611227726}|Finance.Infrastructure\\Finance.Data.csproj|c:\\personal projects\\economicsbackend\\webapplication1\\backend\\finance.api\\finance.infrastructure\\persistence\\configurations\\transactionconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B59A4F79-0449-A1C4-02DA-34C611227726}|Finance.Infrastructure\\Finance.Data.csproj|solutionrelative:finance.infrastructure\\persistence\\configurations\\transactionconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,11 +74,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Entities\\User.cs",
               "RelativeDocumentMoniker": "Finance.Domain\\Entities\\User.cs",
@@ -83,83 +87,56 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-01T00:22:20.708Z",
-              "IsPinned": true,
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MappingProfiles.cs",
+              "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\Helper\\MappingProfiles.cs",
+              "RelativeDocumentMoniker": "Finance.Application\\Helper\\MappingProfiles.cs",
+              "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\Helper\\MappingProfiles.cs",
+              "RelativeToolTip": "Finance.Application\\Helper\\MappingProfiles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T02:17:21.878Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "TransactionRepository.cs",
               "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Repositories\\TransactionRepository.cs",
               "RelativeDocumentMoniker": "Finance.Infrastructure\\Repositories\\TransactionRepository.cs",
               "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Repositories\\TransactionRepository.cs",
               "RelativeToolTip": "Finance.Infrastructure\\Repositories\\TransactionRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACcAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-12T02:17:45.544Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TransactionsController.cs",
-              "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\Controllers\\TransactionsController.cs",
-              "RelativeDocumentMoniker": "Finance.Api\\Controllers\\TransactionsController.cs",
-              "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\Controllers\\TransactionsController.cs",
-              "RelativeToolTip": "Finance.Api\\Controllers\\TransactionsController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwCgAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-06T01:40:50.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TransactionCreateDto.cs",
-              "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\DTOs\\TransactionDTOs\\TransactionCreateDto.cs",
-              "RelativeDocumentMoniker": "Finance.Application\\DTOs\\TransactionDTOs\\TransactionCreateDto.cs",
-              "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\DTOs\\TransactionDTOs\\TransactionCreateDto.cs",
-              "RelativeToolTip": "Finance.Application\\DTOs\\TransactionDTOs\\TransactionCreateDto.cs",
+              "DocumentIndex": 3,
+              "Title": "TransactionDTO.cs",
+              "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\DTOs\\TransactionDTO.cs",
+              "RelativeDocumentMoniker": "Finance.Application\\DTOs\\TransactionDTO.cs",
+              "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\DTOs\\TransactionDTO.cs",
+              "RelativeToolTip": "Finance.Application\\DTOs\\TransactionDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-06T01:26:54.312Z",
+              "WhenOpened": "2026-02-18T02:24:35.761Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Transaction.cs",
-              "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Entities\\Transaction.cs",
-              "RelativeDocumentMoniker": "Finance.Domain\\Entities\\Transaction.cs",
-              "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Entities\\Transaction.cs",
-              "RelativeToolTip": "Finance.Domain\\Entities\\Transaction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-01T01:45:20.88Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TransactionResponseDto.cs",
-              "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\DTOs\\TransactionDTOs\\TransactionResponseDto.cs",
-              "RelativeDocumentMoniker": "Finance.Application\\DTOs\\TransactionDTOs\\TransactionResponseDto.cs",
-              "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Application\\DTOs\\TransactionDTOs\\TransactionResponseDto.cs",
-              "RelativeToolTip": "Finance.Application\\DTOs\\TransactionDTOs\\TransactionResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-06T01:29:56.735Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Goal.cs",
               "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Entities\\Goal.cs",
               "RelativeDocumentMoniker": "Finance.Domain\\Entities\\Goal.cs",
               "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Entities\\Goal.cs",
               "RelativeToolTip": "Finance.Domain\\Entities\\Goal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T00:47:16.08Z",
               "EditorCaption": ""
@@ -172,23 +149,70 @@
               "RelativeDocumentMoniker": "Finance.Domain\\Interfaces\\ITransactionRepository.cs",
               "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Interfaces\\ITransactionRepository.cs",
               "RelativeToolTip": "Finance.Domain\\Interfaces\\ITransactionRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-12T02:10:08.697Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TransactionsController.cs",
+              "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\Controllers\\TransactionsController.cs",
+              "RelativeDocumentMoniker": "Finance.Api\\Controllers\\TransactionsController.cs",
+              "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\Controllers\\TransactionsController.cs",
+              "RelativeToolTip": "Finance.Api\\Controllers\\TransactionsController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T01:40:50.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Entities\\Transaction.cs",
+              "RelativeDocumentMoniker": "Finance.Domain\\Entities\\Transaction.cs",
+              "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Entities\\Transaction.cs",
+              "RelativeToolTip": "Finance.Domain\\Entities\\Transaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T01:45:20.88Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.IoC\\Class1.cs",
+              "RelativeDocumentMoniker": "Finance.IoC\\Class1.cs",
+              "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.IoC\\Class1.cs",
+              "RelativeToolTip": "Finance.IoC\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T01:42:38.67Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Finance.Data.csproj",
+              "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Data.csproj",
+              "RelativeDocumentMoniker": "Finance.Infrastructure\\Finance.Data.csproj",
+              "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Data.csproj",
+              "RelativeToolTip": "Finance.Infrastructure\\Finance.Data.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-30T02:48:50.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\Program.cs",
               "RelativeDocumentMoniker": "Finance.Api\\Program.cs",
               "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\Program.cs",
               "RelativeToolTip": "Finance.Api\\Program.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T01:17:10.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-05T01:17:10.361Z"
             },
             {
               "$type": "Document",
@@ -200,16 +224,11 @@
               "RelativeToolTip": "Finance.Infrastructure\\Persistence\\FinanceDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T01:28:41.785Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "WhenOpened": "2026-02-04T01:28:41.785Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "UserConfiguration.cs",
               "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Persistence\\Configurations\\UserConfiguration.cs",
               "RelativeDocumentMoniker": "Finance.Infrastructure\\Persistence\\Configurations\\UserConfiguration.cs",
@@ -217,12 +236,11 @@
               "RelativeToolTip": "Finance.Infrastructure\\Persistence\\Configurations\\UserConfiguration.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAiwDsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-01T01:15:20.349Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-01T01:15:20.349Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Api\\appsettings.json",
               "RelativeDocumentMoniker": "Finance.Api\\appsettings.json",
@@ -234,20 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Finance.Infrastructure.csproj",
-              "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "Finance.Infrastructure\\Finance.Infrastructure.csproj",
-              "ToolTip": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Finance.Infrastructure.csproj",
-              "RelativeToolTip": "Finance.Infrastructure\\Finance.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-30T02:48:50.798Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "TransactionConfiguration.cs",
               "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Infrastructure\\Persistence\\Configurations\\TransactionConfiguration.cs",
               "RelativeDocumentMoniker": "Finance.Infrastructure\\Persistence\\Configurations\\TransactionConfiguration.cs",
@@ -259,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "Finance.Domain.csproj",
               "DocumentMoniker": "C:\\Personal Projects\\EconomicsBackend\\WebApplication1\\Backend\\Finance.Api\\Finance.Domain\\Finance.Domain.csproj",
               "RelativeDocumentMoniker": "Finance.Domain\\Finance.Domain.csproj",

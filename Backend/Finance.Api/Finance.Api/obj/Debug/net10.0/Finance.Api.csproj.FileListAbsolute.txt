@@ -99,9 +99,7 @@ C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Financ
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Finance.Application.dll
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Finance.Domain.dll
-C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Finance.Infrastructure.dll
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Finance.Application.pdb
-C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Finance.Infrastructure.pdb
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Finance.Domain.pdb
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\obj\Debug\net10.0\Finance.Api.csproj.AssemblyReference.cache
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\obj\Debug\net10.0\rpswa.dswa.cache.json
@@ -128,3 +126,10 @@ C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Financ
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\obj\Debug\net10.0\Finance.Api.genruntimeconfig.cache
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\obj\Debug\net10.0\ref\Finance.Api.dll
 C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Finance.Data.dll
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Finance.Data.pdb
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\AutoMapper.dll
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Personal Projects\EconomicsBackend\WebApplication1\Backend\Finance.Api\Finance.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll

@@ -4,6 +4,8 @@ using Finance.Domain.Interfaces;
 using Finance.Domain.Entities;
 using Finance.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using Finance.Application.DTOs;
 
 namespace Finance.Api.Controllers
 {
@@ -12,16 +14,18 @@ namespace Finance.Api.Controllers
     public class TransactionsController : Controller
     {
         private readonly ITransactionRepository _transactionRepository;
-        public TransactionsController(ITransactionRepository transactionRepository)
+        private readonly IMapper _mapper;
+        public TransactionsController(ITransactionRepository transactionRepository, IMapper mapper)
         {
             _transactionRepository = transactionRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(ICollection<Transaction>))]
         public IActionResult GetTransactions()
         {
-            ICollection<Transaction> transactions = _transactionRepository.GetTransactions();
+            ICollection<TransactionDto> transactions = _mapper.Map<ICollection<TransactionDto>>(_transactionRepository.GetTransactions());
 
             if (!ModelState.IsValid)
             {
@@ -34,7 +38,7 @@ namespace Finance.Api.Controllers
         [ProducesResponseType(200, Type = typeof(ICollection<Transaction>))]
         public IActionResult GetTransactionsByUserId(int userId)
         {
-            ICollection<Transaction> transactions = _transactionRepository.GetTransactionsByUserId(userId);
+            ICollection<TransactionDto> transactions = _mapper.Map<ICollection<TransactionDto>>(_transactionRepository.GetTransactionsByUserId(userId));
 
             if (!ModelState.IsValid) 
             {

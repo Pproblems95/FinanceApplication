@@ -27,5 +27,22 @@ namespace Finance.Infrastructure.Repositories
                 .OrderBy(t => t.Id)
                 .ToList();
         }
+
+        public bool CreateTransaction(Transaction transaction)
+        {
+            //var user = _context.Users.Where(u => u.Id == userId).FirstOrDefault();
+
+            //User foundUser = new User()
+            //{
+
+            //};
+
+            throw new NotImplementedException();
+        }
+
+        public bool Save() 
+        {
+            throw new NotImplementedException();
+        }
     }
 }

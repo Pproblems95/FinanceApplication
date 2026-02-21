@@ -1,3 +1,4 @@
+using Finance.Application.Helper;
 using Finance.Domain;
 using Finance.Domain.Interfaces;
 using Finance.Infrastructure;
@@ -19,6 +20,9 @@ namespace Finance.Api
             builder.Services.AddControllers();
             builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddAutoMapper(cfg => {
+                cfg.AddProfile(new MappingProfiles());
+            });
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 

@@ -9,5 +9,7 @@ namespace Finance.Domain.Interfaces
     {
         ICollection<Transaction> GetTransactions();
         ICollection<Transaction> GetTransactionsByUserId(int userId);
+        bool CreateTransaction(Transaction transaction);
+        bool Save();
     }
 }

@@ -2,5 +2,6 @@
   <Project Path="Finance.Api/Finance.Api.csproj" />
   <Project Path="Finance.Application/Finance.Application.csproj" />
   <Project Path="Finance.Domain/Finance.Domain.csproj" />
-  <Project Path="Finance.Infrastructure/Finance.Infrastructure.csproj" />
+  <Project Path="Finance.Infrastructure/Finance.Data.csproj" />
+  <Project Path="Finance.IoC/Finance.IoC.csproj" Id="b38e0cc6-2277-4fbc-b486-b6d8567f83a7" />
 </Solution>
