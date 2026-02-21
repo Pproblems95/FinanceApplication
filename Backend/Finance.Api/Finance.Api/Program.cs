@@ -1,6 +1,9 @@
+using Finance.Application.Helper;
 using Finance.Domain;
+using Finance.Domain.Interfaces;
 using Finance.Infrastructure;
 using Finance.Infrastructure.Persistence;
+using Finance.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
@@ -15,6 +18,11 @@ namespace Finance.Api
             //// Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddAutoMapper(cfg => {
+                cfg.AddProfile(new MappingProfiles());
+            });
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
