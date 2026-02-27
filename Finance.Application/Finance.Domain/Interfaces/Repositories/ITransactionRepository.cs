@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Finance.Domain.Entities;
 
-namespace Finance.Domain.Interfaces
+namespace Finance.Domain.Interfaces.Repositories
 {
     public interface ITransactionRepository
     {
