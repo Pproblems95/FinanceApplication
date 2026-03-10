@@ -4,6 +4,7 @@
  */
 
 import { type UserConfig, defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 import react from "@vitejs/plugin-react";
 import { spawn } from 'child_process';
 import fs from 'fs';
@@ -15,6 +16,8 @@ const baseFolder =
         ? `${process.env.APPDATA}/ASP.NET/https`
         : `${process.env.HOME}/.aspnet/https`;
 
+console.log(process.env.APPDATA);
+console.log(process.env.HOME);
 // Generate the certificate name using the NPM package name
 const certificateName = process.env.npm_package_name;
 
@@ -31,6 +34,10 @@ const imagePattern = /\.(png|jpe?g|gif|svg|webp|avif)$/;
 // Export Vite configuration
 export default defineConfig(async () => {
     // Ensure the certificate and key exist
+    if (!fs.existsSync(baseFolder)) {
+        fs.mkdirSync(baseFolder, { recursive: true });
+    }
+
     if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
         // Wait for the certificate to be generated
         await new Promise<void>((resolve) => {
@@ -99,7 +106,8 @@ export default defineConfig(async () => {
             }
         },
         plugins: [
-            react()
+            react(),
+            tailwindcss(),
         ],
         optimizeDeps: {
             include: []
