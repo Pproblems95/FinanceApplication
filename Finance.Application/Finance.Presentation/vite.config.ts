@@ -4,6 +4,7 @@
  */
 
 import { type UserConfig, defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 import react from "@vitejs/plugin-react";
 import { spawn } from 'child_process';
 import fs from 'fs';
@@ -99,7 +100,8 @@ export default defineConfig(async () => {
             }
         },
         plugins: [
-            react()
+            react(),
+            tailwindcss(),
         ],
         optimizeDeps: {
             include: []
