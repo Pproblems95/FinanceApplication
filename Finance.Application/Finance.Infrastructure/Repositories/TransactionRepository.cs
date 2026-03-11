@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Finance.Domain.Entities;
-using Finance.Domain.Interfaces;
+using Finance.Domain.Interfaces.Repositories;
 
 namespace Finance.Infrastructure.Repositories
 {
@@ -30,19 +30,15 @@ namespace Finance.Infrastructure.Repositories
 
         public bool CreateTransaction(Transaction transaction)
         {
-            //var user = _context.Users.Where(u => u.Id == userId).FirstOrDefault();
+            _context.Add(transaction);
 
-            //User foundUser = new User()
-            //{
-
-            //};
-
-            throw new NotImplementedException();
+            return Save();
         }
 
         public bool Save() 
         {
-            throw new NotImplementedException();
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
         }
     }
 }

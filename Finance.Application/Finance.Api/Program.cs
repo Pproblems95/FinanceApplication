@@ -1,6 +1,8 @@
 using Finance.Application.Helper;
+using Finance.Application.Interfaces.Services;
+using Finance.Application.Services;
 using Finance.Domain;
-using Finance.Domain.Interfaces;
+using Finance.Domain.Interfaces.Repositories;
 using Finance.Infrastructure;
 using Finance.Infrastructure.Persistence;
 using Finance.Infrastructure.Repositories;
@@ -19,6 +21,7 @@ namespace Finance.Api
 
             builder.Services.AddControllers();
             builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+            builder.Services.AddScoped<ITransactionService, TransactionService>();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddAutoMapper(cfg => {
                 cfg.AddProfile(new MappingProfiles());

@@ -13,6 +13,7 @@ namespace Finance.Application.Helper
         public MappingProfiles()
         {
             CreateMap<Transaction, TransactionDto>();
+            CreateMap<TransactionDto, Transaction>();
         }
     }
 }

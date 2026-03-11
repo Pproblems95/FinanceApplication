@@ -1,36 +1,36 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Finance.Domain.Interfaces;
 using Finance.Domain.Entities;
 using Finance.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using Finance.Application.DTOs;
-
+using Finance.Domain.Interfaces.Repositories;
+using Finance.Application.Interfaces.Services;
 namespace Finance.Api.Controllers
 {
-    [Route("Api/[controller]")]
+    [Route("Api/Transactions/[controller]")]
     [ApiController]
     public class TransactionsController : Controller
     {
-        private readonly ITransactionRepository _transactionRepository;
-        private readonly IMapper _mapper;
-        public TransactionsController(ITransactionRepository transactionRepository, IMapper mapper)
+        private readonly ITransactionService _transactionService;
+
+        public TransactionsController(ITransactionService transactionService)
         {
-            _transactionRepository = transactionRepository;
-            _mapper = mapper;
+            _transactionService = transactionService;
         }
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(ICollection<Transaction>))]
         public IActionResult GetTransactions()
         {
-            ICollection<TransactionDto> transactions = _mapper.Map<ICollection<TransactionDto>>(_transactionRepository.GetTransactions());
+            ICollection<TransactionDto> transactions = _transactionService.GetTransactions();
 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
             return Ok(transactions);
         }
 
@@ -38,13 +38,35 @@ namespace Finance.Api.Controllers
         [ProducesResponseType(200, Type = typeof(ICollection<Transaction>))]
         public IActionResult GetTransactionsByUserId(int userId)
         {
-            ICollection<TransactionDto> transactions = _mapper.Map<ICollection<TransactionDto>>(_transactionRepository.GetTransactionsByUserId(userId));
+            ICollection<TransactionDto> transactions = _transactionService.GetTransactionsByUserId(userId);
 
             if (!ModelState.IsValid) 
             {
                 return BadRequest(ModelState);
             }
             return Ok(transactions);
-        } 
+        }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult CreateTransaction([FromBody] TransactionDto createdTransaction)
+        {
+            if (createdTransaction == null) 
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (!ModelState.IsValid) 
+            {
+                return BadRequest(ModelState);
+            }
+           
+            if (_transactionService.CreateTransaction(createdTransaction))
+                return Ok("Successfully created");
+            else
+                return BadRequest("Something went wrong while creating the transaction");
+
+        }
     }
 }
