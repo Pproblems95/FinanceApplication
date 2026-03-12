@@ -6,9 +6,10 @@ import App from './App'
 import Layout from '../shared/components/Layout'
 import Login from './Login';
 
-const container = document.getElementById('root');
+const container = document.getElementById('app');
 
 if(!container){
+  console.log(container)
   throw new Error("root not found. Check index.html");
 }
 const root = createRoot(container);
