@@ -5,9 +5,10 @@ import '../styles/index.css'
 import App from './App'
 import Layout from '../shared/components/Layout'
 import Login from './Login';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 const container = document.getElementById('root');
-
+console.log(container);
 if(!container){
   throw new Error("root not found. Check index.html");
 }
@@ -35,6 +36,6 @@ const router = createBrowserRouter([
 
 root.render(
   <StrictMode>
-    <RouterProvider router={router}/>
+      <RouterProvider router={router} />
   </StrictMode>
-)
+);
