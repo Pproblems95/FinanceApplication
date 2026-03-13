@@ -10,8 +10,7 @@ function App() {
   return (
     <div className='containerReact'>
       {/* Componente Sidebar Refactorizado */}
-      <SideBar />
-
+      
       {/* Contenido Principal (Lo que falta refactorizar) */}
       <div className="mainContent">
         {/* Aquí es donde normalmente iría el <Outlet /> si usas el Router */}

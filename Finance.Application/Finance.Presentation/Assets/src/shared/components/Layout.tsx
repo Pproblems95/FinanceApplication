@@ -7,9 +7,9 @@ function Layout() {
   return (
     <div className='containerReact'>
       <SideBar />
-      <main className="mainContent">
+      <div>
         <Outlet /> 
-      </main>
+      </div>
     </div>
   );
 }
