@@ -5,6 +5,11 @@ import '../styles/index.css'
 import App from './App'
 import Layout from '../shared/components/Layout'
 import Login from './Login';
+import TransactionRegistry from './TransactionRegistry';
+import Goals from './Goals';
+import History from './History';
+import Configurations from './Configurations';
+import UserSettings from './UserSettings';
 
 const container = document.getElementById('app');
 
@@ -28,6 +33,26 @@ const router = createHashRouter([
       {
         path: '/home',
         element: <App/>
+      },
+      {
+        path: '/transactionregistry',
+        element: <TransactionRegistry/>
+      },
+      {
+        path: '/goals',
+        element: <Goals/>
+      },
+      {
+        path: '/history',
+        element: <History/>
+      },
+      {
+        path: '/configurations',
+        element: <Configurations/>
+      },
+      {
+        path: '/usersettings',
+        element: <UserSettings/>
       }
     ]
   }
