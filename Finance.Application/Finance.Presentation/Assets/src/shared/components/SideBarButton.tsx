@@ -6,18 +6,23 @@ interface SideBarButtonProps {
   name: string;
   description?: string;
   isCurrentlySelected: boolean;
-  customColor?: string; 
+  customColor?: string;
+  customHoveredColor?: string; 
   onClick: () => void;
 }
 
-function SideBarButton({ icon, name, description, isCurrentlySelected, customColor, onClick }: SideBarButtonProps) {
+function SideBarButton({ icon, name, description, isCurrentlySelected, customColor, customHoveredColor, onClick }: SideBarButtonProps) {
+
+    const [isHovered, setIsHovered] = useState(false);
 
     const dynamicStyle = {
-        backgroundColor: customColor 
+        backgroundColor: isHovered 
+            ? (customHoveredColor ? customHoveredColor : '#8b7ac9')
+            : customColor 
             ? customColor 
             : isCurrentlySelected 
-                ? '#6a5ec1' 
-                : '#4a3d90',
+            ? '#6a5ec1' 
+            : '#4a3d90',
         transition: 'background-color 0.3s ease'
     };
     return(
@@ -25,6 +30,8 @@ function SideBarButton({ icon, name, description, isCurrentlySelected, customCol
             className="flex flex-row items-center p-2 cursor-pointer rounded-lg mx-2 my-3 justify-around"
             style={dynamicStyle}
             onClick={onClick}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
             <div>
                 {icon}
