@@ -1,25 +1,31 @@
 
 #app{
-  width: 100vw;
-  height: 100vh;
+  width: auto;
+  height: auto;
+  min-height: fit-content;
+  display: flex;
   /* No se porque app tiene un height no apto para flexbox */
+  /* pos si se pudo meterle flex xd */
 }
 
 .containerReact{
   display: flex;
   align-items: center;
   width:100%;
-  height:100%;
-  padding: 1rem;
+  min-height: 100vh;
   gap: 20px;
+  box-sizing: border-box;
+  
 }
 
 /* Estilos Sidebar empiezan aqui */
 .sidebarContainer{
   background-image:linear-gradient(to bottom, #4a3d90, #6a5ec1); 
   
-  height:98%; 
-  width:250px;
-
+  height: auto;           
+  min-height: 50vh; 
+  width:300px;
+  flex-shrink: 0;
   border-radius: 1.5rem;
+  
 }
