@@ -23,12 +23,13 @@ const router = createBrowserRouter([
   },
 
   {
+    path: '/home',
     element: <Layout/>,
     errorElement: <div>404 page not found</div>, 
 
     children: [
       {
-        path: '/home',
+        index: true,
         element: <App/>
       }
     ]
