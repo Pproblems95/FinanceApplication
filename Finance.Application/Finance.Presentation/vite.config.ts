@@ -67,7 +67,7 @@ export default defineConfig(async () => {
         build: {
             manifest: true,
             emptyOutDir: true,
-            outDir: '../wwwroot',
+            outDir: '/wwwroot',
             assetsDir: '',
             rollupOptions: {
                 input: 'Assets/src/app/main.tsx',
@@ -99,7 +99,9 @@ export default defineConfig(async () => {
             },
         },
         server: {
+            port: 5173,               // ← define el puerto explícitamente
             strictPort: true,
+            historyApiFallback: true,
             https: {
                 cert: certFilePath,
                 key: keyFilePath

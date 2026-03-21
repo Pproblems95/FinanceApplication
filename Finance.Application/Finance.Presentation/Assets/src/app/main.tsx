@@ -36,15 +36,13 @@ const router = createBrowserRouter([
   }
 ])
 
-console.log(window.location.origin + "/home")
-
 root.render(
   <StrictMode>
     <Auth0Provider
       domain={domain}
       clientId={clientId}
       authorizationParams={{
-        redirect_uri: window.location.origin + "/home"
+        redirect_uri: window.location.origin + "/#/home"
       }}
     >
       <RouterProvider router={router} />

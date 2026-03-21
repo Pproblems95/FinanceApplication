@@ -1,6 +1,7 @@
 
 import { useAuth0 } from '@auth0/auth0-react'
 import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 
 function Login(){
   const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
@@ -13,6 +14,10 @@ function Login(){
 
   if (isLoading) {
    return <div>Cargando...</div>;
+  }
+
+  if (isAuthenticated) {
+    Navigate({ to: "/#/home" });
   }
 
   return (

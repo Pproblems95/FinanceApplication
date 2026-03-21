@@ -38,4 +38,6 @@ if (app.Environment.IsDevelopment())
     app.UseViteDevelopmentServer(true);
 }
 
+app.MapFallbackToPage("/{**slug}", "/Index");
+
 app.Run();
