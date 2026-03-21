@@ -1,5 +1,6 @@
 import * as React from 'react'
 import tempProfile from '../utils/tempProfile.jpg';
+import { useAuth0 } from '@auth0/auth0-react';
 import {FlagIcon, UserIcon, MoneyIcon, LogOutIcon, BarChartIcon, CalendarIcon, SettingsIcon, HamburgerIcon} from '../components/icons'
 import SideBarButton from './SideBarButton';
 import { useState } from 'react';
@@ -9,6 +10,8 @@ import '../styles/SideBar.css'
 function SideBar() {
 
   const [isOpen, setIsOpen] = useState(true)
+  const { user, isAuthenticated } = useAuth0();
+  const logout = useAuth0().logout;
   const options = [
     { icon: <BarChartIcon size={20} />, name: 'Predictions (Analytics)', description: 'button description', route:'/home' },
     { icon: <MoneyIcon size={20} />, name: 'Income/Outcome Registry', description: 'button description', route:'/transactionregistry' },
@@ -46,13 +49,13 @@ function SideBar() {
             </div>
         </div>
           <div  className='w-25 h-25 overflow-hidden bg-black border-white border-4 rounded-full flex items-center justify-center my-5 mx-5' style={{}}>
-            <img src={tempProfile} className="w-full h-full object-cover" />
+            <img src={user?.picture} className="w-full h-full object-cover" />
           </div>
           <div className='font-bold text-lg'>
-            Senshi of Izganda
+            {user?.name}
           </div>
           <div>
-            User since February 24 of 2026
+            {user?.updated_at}
           </div>
         </div>
 
@@ -81,7 +84,7 @@ function SideBar() {
           isCurrentlySelected={false}
           customColor='black'
           customHoveredColor='red'
-          onClick={() => navigate('/')}
+          onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
           />
         </div>
 

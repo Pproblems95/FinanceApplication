@@ -1,4 +1,4 @@
-import { IconBaseProps } from "react-icons";
+import type { IconBaseProps } from 'react-icons/lib';
 import { FaChartSimple, FaMoneyBills, FaFlag, FaCalendarDays, FaGear, FaUser } from "react-icons/fa6";
 import { BiLogOut } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
