@@ -14,11 +14,11 @@ function SideBar() {
   const logout = useAuth0().logout;
   const options = [
     { icon: <BarChartIcon size={20} />, name: 'Predictions (Analytics)', description: 'button description', route:'/home' },
-    { icon: <MoneyIcon size={20} />, name: 'Income/Outcome Registry', description: 'button description', route:'/transactionregistry' },
-    { icon: <FlagIcon size={20} />, name: 'Goals', description: 'button description', route:'/goals' },
-    { icon: <CalendarIcon size={20} />, name: 'History', description: 'button description', route:'/history' },
-    { icon: <SettingsIcon size={20} />, name: 'Configurations', description: 'button description', route:'/configurations' },
-    { icon: <UserIcon size={20} />, name: 'User Settings', description: 'button description', route:'/usersettings' }
+    { icon: <MoneyIcon size={20} />, name: 'Income/Outcome Registry', description: 'button description', route:'/home/transactionregistry' },
+    { icon: <FlagIcon size={20} />, name: 'Goals', description: 'button description', route:'/home/goals' },
+    { icon: <CalendarIcon size={20} />, name: 'History', description: 'button description', route:'/home/history' },
+    { icon: <SettingsIcon size={20} />, name: 'Configurations', description: 'button description', route:'/home/configurations' },
+    { icon: <UserIcon size={20} />, name: 'User Settings', description: 'button description', route:'/home/usersettings' }
   ]
   const navigate = useNavigate();
   const location = useLocation();
