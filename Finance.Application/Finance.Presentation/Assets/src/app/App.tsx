@@ -1,19 +1,13 @@
-
-// import { useState } from 'react'
-// import reactLogo from '../assets/react.svg'
-// import viteLogo from '/vite.svg'
 import '../styles/App.css';
+import useTransactions from '../shared/hooks/useTransactions';
 
-import SideBar from '../shared/components/SideBar'; 
 
 function App() {
+  const {transactions, isLoading, error} = useTransactions()
   return (
-    <div className='containerReact'>
-      {/* Componente Sidebar Refactorizado */}
-      
-      {/* Contenido Principal (Lo que falta refactorizar) */}
-      <div className="mainContent">
-        {/* Aquí es donde normalmente iría el <Outlet /> si usas el Router */}
+    <div className='containerReact'>     
+      <div className="mainContent" onClick={() => {console.log(transactions, isLoading, error)}}>
+
         <h1>Contenido Principal</h1>
         <div style={{ border: '1px solid white', padding: '10px' }}>
           x

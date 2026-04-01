@@ -9,7 +9,7 @@ using Finance.Domain.Interfaces.Repositories;
 using Finance.Application.Interfaces.Services;
 namespace Finance.Api.Controllers
 {
-    [Route("Api/Transactions/[controller]")]
+    [Route("Api/[controller]")]
     [ApiController]
     public class TransactionsController : Controller
     {
