@@ -1,0 +1,50 @@
+import TransactionController from '../controllers/TransactionController';
+import type { TransactionDto } from "../types/Transaction";
+import { evaluteNulls } from '../utils/helpers/evaluateNulls.ts/helpers';
+
+export const TransactionService = {
+    getTransactions: async (): Promise<TransactionDto[]> => {
+        try {
+            const data = (await TransactionController.getAllTransactions()).data;
+            
+            return evaluteNulls(data);
+        }
+        catch (error) {
+            throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");
+        }
+    },
+    getTransactionByUserId: async (userId: number | null): Promise<TransactionDto[]> => {
+        try {
+            if(!userId)
+                throw new Error("ID de usuario no proporcionado o inválido.");
+            
+            const verifiedUserId = userId
+            
+            const data = (await TransactionController.getTransactionsByUserId(verifiedUserId)).data;
+            
+            return evaluteNulls(data);
+        }
+        catch (error) {
+            throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");
+        }
+    },
+    postTransaction: async (transaction: TransactionDto | null): Promise<TransactionDto> => {
+        try {
+            if(!transaction)
+                throw new Error("Transaccion no valida");
+            if(transaction.Category !== "Income" && transaction.Category !== "Outcome")
+                throw new Error("Categoria de transaccion no valida");
+            if(transaction.Description.length > 500)
+                throw new Error("La descripcion no puede ser mayor a 500 caracteres");
+            if(transaction.Amount <= 0)
+                throw new Error("No se puede agregar una cantidad menor a 0");
+            
+            const transactionControllerResult = (await TransactionController.postTransaction(transaction)).data;
+            
+            return evaluteNulls(transactionControllerResult);
+        }
+        catch (error) {
+            throw new Error("Hubo un error al subir tus datos. Intenta de nuevo mas tarde.");
+        }
+    }
+}

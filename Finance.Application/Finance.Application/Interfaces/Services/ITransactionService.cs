@@ -9,6 +9,7 @@ namespace Finance.Application.Interfaces.Services
     {
         public ICollection<TransactionDto> GetTransactions();
         public ICollection<TransactionDto> GetTransactionsByUserId(int userId);
-        public bool CreateTransaction(TransactionDto transaction);
+        public TransactionDto CreateTransaction(TransactionDto transaction);
+        public TransactionDto GetTransactionByTransactionId(int transactionId);
     }
 }

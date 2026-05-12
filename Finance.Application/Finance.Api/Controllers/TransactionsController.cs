@@ -7,9 +7,10 @@ using AutoMapper;
 using Finance.Application.DTOs;
 using Finance.Domain.Interfaces.Repositories;
 using Finance.Application.Interfaces.Services;
+using Finance.Api.Common;
 namespace Finance.Api.Controllers
 {
-    [Route("Api/Transactions/[controller]")]
+    [Route("Api/[controller]")]
     [ApiController]
     public class TransactionsController : Controller
     {
@@ -28,10 +29,13 @@ namespace Finance.Api.Controllers
 
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                List<string>? errors = ModelState.Values.SelectMany(v => v.Errors)
+                                              .Select(e => e.ErrorMessage)
+                                              .ToList();
+                return BadRequest(ResponseVM<ICollection<TransactionDto>>.Failure("Invalid model state", errors));
             }
 
-            return Ok(transactions);
+            return Ok(ResponseVM<ICollection<TransactionDto>>.Ok(transactions));
         }
 
         [HttpGet("{userId}")]
@@ -42,30 +46,36 @@ namespace Finance.Api.Controllers
 
             if (!ModelState.IsValid) 
             {
-                return BadRequest(ModelState);
+                List<string>? errors = ModelState.Values.SelectMany(v => v.Errors)
+                                              .Select(e => e.ErrorMessage)
+                                              .ToList();
+                return BadRequest(ResponseVM<ICollection<TransactionDto>>.Failure("Invalid model state", errors));
             }
-            return Ok(transactions);
+            return Ok(ResponseVM<ICollection<TransactionDto>>.Ok(transactions));
         }
 
         [HttpPost]
-        [ProducesResponseType(204)]
+        [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         public IActionResult CreateTransaction([FromBody] TransactionDto createdTransaction)
         {
-            if (createdTransaction == null) 
-            {
-                return BadRequest(ModelState);
-            }
 
             if (!ModelState.IsValid) 
             {
-                return BadRequest(ModelState);
+                List<string>? errors = ModelState.Values.SelectMany(v => v.Errors)
+                                              .Select(e => e.ErrorMessage)
+                                              .ToList();
+                return BadRequest(ResponseVM<TransactionDto>.Failure("Invalid model state", errors));
             }
-           
-            if (_transactionService.CreateTransaction(createdTransaction))
-                return Ok("Successfully created");
-            else
-                return BadRequest("Something went wrong while creating the transaction");
+            
+            try
+            {
+                return StatusCode(201, ResponseVM<TransactionDto>.Ok(_transactionService.CreateTransaction(createdTransaction), "Transaction created successfully"));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseVM<TransactionDto>.Failure(ex.Message, null));
+            }
 
         }
     }

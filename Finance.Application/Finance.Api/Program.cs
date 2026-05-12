@@ -16,9 +16,19 @@ namespace Finance.Api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var AllowedOrigins = "_allowedOrigins";
 
             //// Add services to the container.
-
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: AllowedOrigins,
+                                  policy =>
+                                  {
+                                      policy.WithOrigins("http://localhost:3000", "http://localhost:44342", "https://localhost:44342")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                                  });
+            });
             builder.Services.AddControllers();
             builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
             builder.Services.AddScoped<ITransactionService, TransactionService>();
@@ -49,6 +59,8 @@ namespace Finance.Api
             app.UseStaticFiles();
 
             app.UseRouting();
+            
+            app.UseCors(AllowedOrigins);
 
             app.UseAuthorization();
 

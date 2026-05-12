@@ -20,16 +20,20 @@ namespace Finance.Application.Services
             _mapper = mapper;
         }
 
-        public bool CreateTransaction(TransactionDto createdTransaction)
+        public TransactionDto CreateTransaction(TransactionDto createdTransaction)
         {
             if (createdTransaction == null) 
             {
-                return false;
+                throw new Exception($"La transaccion no puede ser nula.");
             }
 
-            var transactionEntity = _mapper.Map<Transaction>(createdTransaction);
+            Transaction? transactionEntity = _mapper.Map<Transaction>(createdTransaction);
+            TransactionDto? savedTransaction = _mapper.Map<TransactionDto>(_repository.CreateTransaction(transactionEntity));
 
-            return _repository.CreateTransaction(transactionEntity);
+            if (savedTransaction == null)
+                throw new Exception("Ocurrio un error al crear la transacción.");
+
+            return savedTransaction;
         }
 
         public ICollection<TransactionDto> GetTransactions()
@@ -50,6 +54,16 @@ namespace Finance.Application.Services
                 transactions = [];
 
             return transactions;
+        }
+
+        public TransactionDto GetTransactionByTransactionId(int transactionId)
+        {
+            Transaction? transactionEntity = _repository.GetTransactionByTransactionId(transactionId);
+
+            if (transactionEntity == null)
+                throw new KeyNotFoundException($"La transacción con ID {transactionId} no fue encontrada.");
+
+            return _mapper.Map<TransactionDto>(transactionEntity);
         }
     }
 }

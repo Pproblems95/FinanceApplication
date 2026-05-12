@@ -28,11 +28,24 @@ namespace Finance.Infrastructure.Repositories
                 .ToList();
         }
 
-        public bool CreateTransaction(Transaction transaction)
+        public Transaction? GetTransactionByTransactionId(int transactionId)
+        {
+            return _context.Transactions.Where(t => t.Id == transactionId).FirstOrDefault();
+        }
+
+        public Transaction? CreateTransaction(Transaction transaction)
         {
             _context.Add(transaction);
+            
+            if(Save())
+            {
+                return transaction;
+            }
+            else
+            {
+                return null;
+            }
 
-            return Save();
         }
 
         public bool Save() 
