@@ -1,16 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider, createHashRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
 import '../styles/index.css'
-import App from './App'
+import App from './views/App'
 import Layout from '../shared/components/Layout'
-import Login from './Login';
-import TransactionRegistry from './TransactionRegistry';
-import Goals from './Goals';
-import History from './History';
-import Configurations from './Configurations';
-import UserSettings from './UserSettings';
+import Login from './views/Login';
+import TransactionRegistry from './views/TransactionRegistry';
+import Goals from './views/Goals';
+import History from './views/History';
+import Configurations from './views/Configurations';
+import UserSettings from './views/UserSettings';
 
 const domain = import.meta.env.VITE_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
@@ -34,7 +34,7 @@ const router = createHashRouter([
 
   children: [
     { index: true, element: <App/> },
-    { path: 'transactionregistry', element: <TransactionRegistry/> },  // ← sin /
+    { path: 'transactionregistry', element: <TransactionRegistry/> },  
     { path: 'goals', element: <Goals/> },
     { path: 'history', element: <History/> },
     { path: 'configurations', element: <Configurations/> },

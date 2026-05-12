@@ -15,6 +15,9 @@ export const useTransactions = () => {
         }
         catch (error: unknown) {
             setError(error)
+        } 
+        finally {
+            setIsLoading(false);
         }
     }
 
@@ -25,4 +28,66 @@ export const useTransactions = () => {
     return {isLoading, transactions, error}
 }
 
-export default useTransactions
+export const useGetTransactionsByUserId = (userId: number | null) => {
+    const [isLoadingGetUserById, setIsLoadingGetUserById] = useState(false);
+    const [transactionsGetUserById, setTransactionGetUserById] = useState<TransactionDto[] | null>(null);
+    const [errorGetUserById, setErrorGetUserById] = useState<unknown>(null);
+
+    const getByIdGetUserById = async () => {
+        try {
+            setIsLoadingGetUserById(true);
+            const data = await TransactionService.getTransactionByUserId(userId);
+            setTransactionGetUserById(data);
+        }
+        catch (error: unknown) {
+            setErrorGetUserById(error);
+        } 
+        finally {
+            setIsLoadingGetUserById(false);
+        }
+    }
+
+    useEffect(() => {
+        if (!userId)
+            return;
+        getByIdGetUserById();
+    }, [userId]);
+
+    return { 
+        isLoadingGetUserById, 
+        transactionsGetUserById, 
+        errorGetUserById 
+    };
+};
+
+export const usePostTransaction = (transaction: TransactionDto | null) => {
+    const [isLoadingPostTransaction, setIsLoadingPostTransaction] = useState(false);
+    const [transactionPost, setTransactionPost] = useState<TransactionDto | null>(null);
+    const [errorPostTransaction, setErrorPostTransaction] = useState<unknown>(null);
+
+    const postTransaction = async () => {
+        try {
+            setIsLoadingPostTransaction(true);
+            const newTransaction = await TransactionService.postTransaction(transaction);
+            setTransactionPost(newTransaction);
+        }
+        catch (error: unknown) {
+            setErrorPostTransaction(error);
+        } 
+        finally {
+            setIsLoadingPostTransaction(false);
+        }
+    }
+
+    useEffect(() => {
+        if (!transaction)
+            return;
+        postTransaction();
+    }, [transaction]);
+
+    return {
+        isLoadingPostTransaction,
+        transactionPost,
+        errorPostTransaction
+    }
+}
