@@ -1,13 +1,13 @@
 import TransactionController from '../controllers/TransactionController';
 import type { TransactionDto } from "../types/Transaction";
-import { evaluteNulls } from '../utils/helpers/evaluateNulls.ts/helpers';
+import { evaluateNulls } from '../utils/helpers/evaluateNulls.ts/helpers';
 
 export const TransactionService = {
     getTransactions: async (): Promise<TransactionDto[]> => {
         try {
             const data = (await TransactionController.getAllTransactions()).data;
             
-            return evaluteNulls(data);
+            return evaluateNulls(data);
         }
         catch (error) {
             throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");
@@ -22,7 +22,7 @@ export const TransactionService = {
             
             const data = (await TransactionController.getTransactionsByUserId(verifiedUserId)).data;
             
-            return evaluteNulls(data);
+            return evaluateNulls(data);
         }
         catch (error) {
             throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");
@@ -41,7 +41,7 @@ export const TransactionService = {
             
             const transactionControllerResult = (await TransactionController.postTransaction(transaction)).data;
             
-            return evaluteNulls(transactionControllerResult);
+            return evaluateNulls(transactionControllerResult);
         }
         catch (error) {
             throw new Error("Hubo un error al subir tus datos. Intenta de nuevo mas tarde.");

@@ -8,7 +8,7 @@ namespace Finance.Domain.Interfaces.Repositories
     public interface ITransactionRepository
     {
         ICollection<Transaction> GetTransactions();
-        ICollection<Transaction> GetTransactionsByUserId(int userId);
+        ICollection<Transaction> GetTransactionsByUserId(int userId, DateTime? fromDate, DateTime? untilDate);
         Transaction? GetTransactionByTransactionId(int transactionId);
         Transaction? CreateTransaction(Transaction transaction);
         bool Save();

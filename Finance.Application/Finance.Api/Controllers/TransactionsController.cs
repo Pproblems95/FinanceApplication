@@ -40,9 +40,9 @@ namespace Finance.Api.Controllers
 
         [HttpGet("{userId}")]
         [ProducesResponseType(200, Type = typeof(ICollection<Transaction>))]
-        public IActionResult GetTransactionsByUserId(int userId)
+        public IActionResult GetTransactionsByUserId([FromRoute]int userId, [FromQuery] string? fromDate, [FromQuery] string? untilDate)
         {
-            ICollection<TransactionDto> transactions = _transactionService.GetTransactionsByUserId(userId);
+            ICollection<TransactionDto> transactions = _transactionService.GetTransactionsByUserId(userId, fromDate, untilDate);
 
             if (!ModelState.IsValid) 
             {

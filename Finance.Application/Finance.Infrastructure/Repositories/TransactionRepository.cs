@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Finance.Domain.Entities;
 using Finance.Domain.Interfaces.Repositories;
+using System.Globalization;
 
 namespace Finance.Infrastructure.Repositories
 {
@@ -21,11 +22,26 @@ namespace Finance.Infrastructure.Repositories
             return _context.Transactions.OrderBy(t => t.Id).ToList();
         }
         
-        public ICollection<Transaction> GetTransactionsByUserId(int userId)
+
+        public ICollection<Transaction> GetTransactionsByUserId(int userId, DateTime? fromDate, DateTime? untilDate)
         {
-            return _context.Transactions.Where(t => t.UserId == userId)
+            if(fromDate == null || untilDate == null)
+            {
+                return _context.Transactions.Where(
+                t => t.UserId == userId)
                 .OrderBy(t => t.Id)
                 .ToList();
+            }
+            else
+            {
+                return _context.Transactions.Where(
+                t => t.UserId == userId &&
+                t.Date >= fromDate &&
+                t.Date <= untilDate)
+                .OrderBy(t => t.Id)
+                .ToList();
+            }
+            
         }
 
         public Transaction? GetTransactionByTransactionId(int transactionId)
