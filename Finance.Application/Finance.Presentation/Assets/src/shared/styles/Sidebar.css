@@ -1,0 +1,13 @@
+.customScrollBar{
+    scrollbar-width:none;
+    scrollbar-color: hsla(0, 0%, 100%, 0.2) transparent;
+}
+
+.customScrollBar::-webkit-scrollbar{
+    display: none;
+}
+
+.customScrollBar::-webkit-scrollbar-track-piece {
+    /* display: none; */
+    /* background-color: aqua; */
+}

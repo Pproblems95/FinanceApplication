@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createHashRouter } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
+
 import '../styles/index.css'
 import App from './views/App'
 import Layout from '../shared/components/Layout'

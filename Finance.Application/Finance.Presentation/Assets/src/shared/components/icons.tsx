@@ -2,6 +2,7 @@ import type { IconBaseProps } from 'react-icons/lib';
 import { FaChartSimple, FaMoneyBills, FaFlag, FaCalendarDays, FaGear, FaUser } from "react-icons/fa6";
 import { BiLogOut } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { ImCross } from "react-icons/im";
 
 export const BarChartIcon = (props: IconBaseProps) => (
     <FaChartSimple {...props} />
@@ -33,4 +34,8 @@ export const LogOutIcon = (props: IconBaseProps) => (
 
 export const HamburgerIcon = (props: IconBaseProps) => (
     <RxHamburgerMenu  {...props} />
+)
+
+export const ImCrossIcon = (props:IconBaseProps) => (
+    <ImCross {...props} />
 )

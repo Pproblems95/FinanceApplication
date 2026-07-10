@@ -14,15 +14,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
-  width: auto;
-  height: auto;
+  width:auto;
+  height:auto;
 }
 
 body {
   margin: 0;
   height: 100%;
-  width: auto;
-  background-color:#2a2a45;
+  width: 100%;
+
+  background-color:#050515;
 
   
   /* place-items: center; */
