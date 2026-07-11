@@ -13,16 +13,22 @@ export const TransactionService = {
             throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");
         }
     },
-    getTransactionByUserId: async (userId: number | null): Promise<TransactionDto[]> => {
+    getTransactionByUserId: async (userId: number | null, fromDate?: string, untilDate?: string): Promise<TransactionDto[]> => {
         try {
-            if(!userId)
+            if (!userId)
                 throw new Error("ID de usuario no proporcionado o inválido.");
             
-            const verifiedUserId = userId
-            
-            const data = (await TransactionController.getTransactionsByUserId(verifiedUserId)).data;
-            
-            return evaluateNulls(data);
+            const verifiedUserId = userId;
+            if (!fromDate || !untilDate){
+                const stringForApiCall = `${verifiedUserId}`
+                const data = (await TransactionController.getTransactionsByUserId(stringForApiCall)).data;
+                return evaluateNulls(data);
+            }
+            else{
+                const stringForApiCall = `${verifiedUserId}?fromDate=${fromDate}&untilDate=${untilDate}`
+                const data = (await TransactionController.getTransactionsByUserId(stringForApiCall)).data;
+                return evaluateNulls(data);
+            }
         }
         catch (error) {
             throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");

@@ -28,7 +28,7 @@ export const useTransactions = () => {
     return {isLoading, transactions, error}
 }
 
-export const useGetTransactionsByUserId = (userId: number | null) => {
+export const useGetTransactionsByUserId = (userId: number | null, fromDate?: string, untilDate?: string) => {
     const [isLoadingGetUserById, setIsLoadingGetUserById] = useState(false);
     const [transactionsGetUserById, setTransactionGetUserById] = useState<TransactionDto[] | null>(null);
     const [errorGetUserById, setErrorGetUserById] = useState<unknown>(null);
@@ -36,8 +36,14 @@ export const useGetTransactionsByUserId = (userId: number | null) => {
     const getByIdGetUserById = async () => {
         try {
             setIsLoadingGetUserById(true);
-            const data = await TransactionService.getTransactionByUserId(userId);
-            setTransactionGetUserById(data);
+            if (!fromDate || !untilDate){
+                const data = await TransactionService.getTransactionByUserId(userId);
+                setTransactionGetUserById(data);
+            }
+            else{
+                const data = await TransactionService.getTransactionByUserId(userId, fromDate, untilDate);
+                setTransactionGetUserById(data);
+            }        
         }
         catch (error: unknown) {
             setErrorGetUserById(error);
