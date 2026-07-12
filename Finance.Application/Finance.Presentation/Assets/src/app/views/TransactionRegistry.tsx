@@ -1,7 +1,11 @@
 import * as React from 'react'
 
 function TransactionRegistry() {
-    return(<></>)
+    return(
+    <div>
+      
+    </div>
+    )
 }
 
 export default TransactionRegistry
