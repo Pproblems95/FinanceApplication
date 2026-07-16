@@ -84,12 +84,12 @@ function App() {
                 console.log("Datos listos:", { userId, amount, description, category });
                 
                 setNewTransaction({
-                  Id: 0, 
-                  UserId:userId,
-                  Amount: amount,
-                  Description: description,
-                  Date: new Date().toISOString(),
-                  Category: category
+                  id: 0, 
+                  userId:userId,
+                  amount: amount,
+                  description: description,
+                  date: new Date().toISOString(),
+                  category: category
                  });
                  console.log(transactionPost);
               }}

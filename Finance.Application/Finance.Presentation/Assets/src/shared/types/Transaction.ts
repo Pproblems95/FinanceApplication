@@ -1,8 +1,8 @@
 export interface TransactionDto {
-    Id: number;
-    UserId: number;
-    Amount: number;
-    Date: string;
-    Description: string;
-    Category: string;
+    id: number;
+    userId: number;
+    amount: number;
+    date: string;
+    description: string;
+    category: string;
 }
