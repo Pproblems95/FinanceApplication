@@ -7,7 +7,7 @@ function Layout() {
   return (
     <div className='containerReact'>
       <SideBar />
-      <div>
+      <div className='containerReact'>
         <Outlet /> 
       </div>
     </div>

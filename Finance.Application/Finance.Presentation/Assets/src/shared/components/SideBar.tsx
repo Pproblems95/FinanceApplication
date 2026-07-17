@@ -5,7 +5,7 @@ import {FlagIcon, UserIcon, MoneyIcon, LogOutIcon, BarChartIcon, CalendarIcon, S
 import SideBarButton from './SideBarButton';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../styles/SideBar.css'
+
 
 function SideBar() {
 

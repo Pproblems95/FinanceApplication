@@ -10,11 +10,11 @@ interface InputFilterProps {
 
 function InputFilter({icon, placeholder, backgroundColor, type}: InputFilterProps){
     return(
-    <div className=' flex-row flex p-5 w-full rounded-lg' style={{background: backgroundColor}}>
-      <div className='flex-1'>
+    <div className=' flex-row flex p-5 w-full rounded-lg ' style={{background: backgroundColor}}>
+      <div className='flex-1 flex'>
         {icon}
       </div>
-      <input className='flex-5' type={type} placeholder={placeholder}/>
+      <input className='flex-5 flex' type={type} placeholder={placeholder}/>
     </div>)
 }
 
