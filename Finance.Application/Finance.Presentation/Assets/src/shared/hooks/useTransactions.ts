@@ -57,7 +57,7 @@ export const useGetTransactionsByUserId = (userId: number | null, fromDate?: str
         if (!userId)
             return;
         getByIdGetUserById();
-    }, [userId]);
+    }, [userId, fromDate, untilDate]);
 
     return { 
         isLoadingGetUserById, 

@@ -1,13 +1,15 @@
-import * as React from 'react'
 import tempProfile from '../utils/tempProfile.jpg';
 import { useAuth0 } from '@auth0/auth0-react';
 import {FlagIcon, UserIcon, MoneyIcon, LogOutIcon, BarChartIcon, CalendarIcon, SettingsIcon, HamburgerIcon} from '../components/icons'
 import SideBarButton from './SideBarButton';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+interface sideBarProps {
+  onStatusChange: (data: boolean) => void
+};
 
-function SideBar() {
+function SideBar({onStatusChange}: sideBarProps) {
 
   const [isOpen, setIsOpen] = useState(true)
   const { user, isAuthenticated } = useAuth0();
@@ -22,6 +24,9 @@ function SideBar() {
   ]
   const navigate = useNavigate();
   const location = useLocation();
+  useEffect(() => {
+    onStatusChange(isOpen);
+  }, [isOpen])
 
   return (
     <div>
