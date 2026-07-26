@@ -8,7 +8,11 @@ using Finance.Application.DTOs;
 using Finance.Domain.Interfaces.Repositories;
 using Finance.Application.Interfaces.Services;
 using Finance.Api.Common;
+using Finance.Application.Common;
+using System.Text;
+using System.Text.Json;
 namespace Finance.Api.Controllers
+
 {
     [Route("Api/[controller]")]
     [ApiController]
@@ -39,10 +43,12 @@ namespace Finance.Api.Controllers
         }
 
         [HttpGet("{userId}")]
-        [ProducesResponseType(200, Type = typeof(ICollection<Transaction>))]
-        public IActionResult GetTransactionsByUserId([FromRoute]int userId, [FromQuery] string? fromDate, [FromQuery] string? untilDate)
+        [ProducesResponseType(200, Type = typeof(PagedResponse<ICollection<Transaction>>))]
+        public async Task<IActionResult> GetTransactionsByUserId( [FromRoute] int userId,  [FromQuery] string? nextCursor,
+            [FromQuery] string? fromDate, [FromQuery] string? untilDate, [FromQuery] int pageSize = 10)
+
         {
-            ICollection<TransactionDto> transactions = _transactionService.GetTransactionsByUserId(userId, fromDate, untilDate);
+            PagedResponse<ICollection<TransactionDto>> transactions = await _transactionService.GetTransactionsByUserId(userId, fromDate, untilDate, nextCursor, pageSize);
 
             if (!ModelState.IsValid) 
             {
@@ -51,7 +57,7 @@ namespace Finance.Api.Controllers
                                               .ToList();
                 return BadRequest(ResponseVM<ICollection<TransactionDto>>.Failure("Invalid model state", errors));
             }
-            return Ok(ResponseVM<ICollection<TransactionDto>>.Ok(transactions));
+            return Ok(ResponseVM<PagedResponse<ICollection<TransactionDto>>>.Ok(transactions));
         }
 
         [HttpPost]

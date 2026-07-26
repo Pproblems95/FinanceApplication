@@ -1,12 +1,15 @@
 ﻿using AutoMapper;
+using Finance.Application.Common;
 using Finance.Application.DTOs;
 using Finance.Application.Interfaces.Services;
 using Finance.Domain.Entities;
 using Finance.Domain.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Text;
+using System.Text.Json;
 
 
 namespace Finance.Application.Services
@@ -46,13 +49,26 @@ namespace Finance.Application.Services
 
             return transactions;
         }
-
-        public ICollection<TransactionDto> GetTransactionsByUserId(int userId, string? fromDate, string? untilDate)
+        public async Task<PagedResponse<ICollection<TransactionDto>>> GetTransactionsByUserId(int userId, string? fromDate, string? untilDate, string? nextCursor, int pageSize)
         {
             DateTime? parsedFromDate = null;
             DateTime? parsedUntilDate = null;
+            DateTime? nextCursorCreatedAt = null;
+            int? nextCursorId = null;
+            TransactionCursor? transactionCursor;
+            int clampedPageSize = Math.Clamp(pageSize, 1, 50);
+
             try
             {
+                if (nextCursor != null)
+                {
+                    byte[] jsonBytes = Convert.FromBase64String(nextCursor);
+                    string jsonString = Encoding.UTF8.GetString(jsonBytes);
+                    transactionCursor = JsonSerializer.Deserialize<TransactionCursor>(jsonString);
+                    nextCursorCreatedAt = transactionCursor?.CreatedAt;
+                    nextCursorId = transactionCursor?.Id;
+                }
+
                 if (fromDate != null && untilDate != null)
                 {
                     DateTime localFrom = DateTime.Parse(fromDate, CultureInfo.InvariantCulture);
@@ -60,11 +76,19 @@ namespace Finance.Application.Services
                     parsedFromDate = DateTime.SpecifyKind(localFrom, DateTimeKind.Utc);
                     parsedUntilDate = DateTime.SpecifyKind(localUntil, DateTimeKind.Utc);
                 }
-                ICollection<TransactionDto> transactions = _mapper.Map<ICollection<TransactionDto>>(_repository.GetTransactionsByUserId(userId, parsedFromDate, parsedUntilDate));
+                ICollection<TransactionDto> transactions = _mapper.Map<ICollection<TransactionDto>>(await _repository.GetTransactionsByUserId(userId, parsedFromDate, parsedUntilDate, nextCursorCreatedAt, nextCursorId, clampedPageSize));
+                
                 if (transactions == null)
                     transactions = [];
 
-                return transactions;
+                //TransactionDto? cursor = transactions.LastOrDefault();
+                //if(cursor != null)
+                //{
+                //    //me quede aqui, el problema actual es que el TransactionDto no te trae el createdAt, necesito un modo de solucionar eso para mandarlo en la paginacion al cliente
+                //}
+                string cursor = "";
+                return PagedResponse<ICollection<TransactionDto>>.Create(transactions, clampedPageSize, cursor);
+
             }
             catch (Exception ex) 
             {
