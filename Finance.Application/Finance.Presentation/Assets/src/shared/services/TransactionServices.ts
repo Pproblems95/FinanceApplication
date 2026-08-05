@@ -21,12 +21,14 @@ export const TransactionService = {
             const verifiedUserId = userId;
             if (!fromDate || !untilDate){
                 const stringForApiCall = `${verifiedUserId}`
-                const data = (await TransactionController.getTransactionsByUserId(stringForApiCall)).data;
+                const pagedResponseData = (await TransactionController.getTransactionsByUserId(stringForApiCall)).data;
+                const data = pagedResponseData?.items
                 return evaluateNulls(data);
             }
             else{
                 const stringForApiCall = `${verifiedUserId}?fromDate=${fromDate}&untilDate=${untilDate}`
-                const data = (await TransactionController.getTransactionsByUserId(stringForApiCall)).data;
+                const pagedResponseData = (await TransactionController.getTransactionsByUserId(stringForApiCall)).data;
+                const data = pagedResponseData?.items
                 return evaluateNulls(data);
             }
         }
@@ -38,11 +40,11 @@ export const TransactionService = {
         try {
             if(!transaction)
                 throw new Error("Transaccion no valida");
-            if(transaction.Category !== "Income" && transaction.Category !== "Outcome")
+            if(transaction.category !== "Income" && transaction.category !== "Outcome")
                 throw new Error("Categoria de transaccion no valida");
-            if(transaction.Description.length > 500)
+            if(transaction.description.length > 500)
                 throw new Error("La descripcion no puede ser mayor a 500 caracteres");
-            if(transaction.Amount <= 0)
+            if(transaction.amount <= 0)
                 throw new Error("No se puede agregar una cantidad menor a 0");
             
             const transactionControllerResult = (await TransactionController.postTransaction(transaction)).data;

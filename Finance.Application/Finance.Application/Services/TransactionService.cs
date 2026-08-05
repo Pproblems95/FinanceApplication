@@ -81,13 +81,22 @@ namespace Finance.Application.Services
                 if (transactions == null)
                     transactions = [];
 
-                //TransactionDto? cursor = transactions.LastOrDefault();
-                //if(cursor != null)
-                //{
-                //    //me quede aqui, el problema actual es que el TransactionDto no te trae el createdAt, necesito un modo de solucionar eso para mandarlo en la paginacion al cliente
-                //}
-                string cursor = "";
-                return PagedResponse<ICollection<TransactionDto>>.Create(transactions, clampedPageSize, cursor);
+                TransactionDto? cursor = transactions.LastOrDefault();
+                string parsedCursorOrEmptyString = "";
+                if (cursor != null)
+                {
+                    string jsonString = JsonSerializer.Serialize(cursor);
+                    byte[] byteData = Encoding.UTF8.GetBytes(jsonString);
+                    parsedCursorOrEmptyString = Convert.ToBase64String(byteData);
+                }
+
+                if (transactions.Count > pageSize && transactions.Count > 1)
+                {
+                    TransactionDto lastItem = transactions.Last();
+                    transactions.Remove(lastItem);
+                }
+                
+                return PagedResponse<ICollection<TransactionDto>>.Create(transactions, clampedPageSize, parsedCursorOrEmptyString);
 
             }
             catch (Exception ex) 

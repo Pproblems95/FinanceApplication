@@ -26,6 +26,11 @@ function History() {
       setDataToFeedList(transactionsGetUserById);
   }, [transactionsGetUserById])
 
+  useEffect(() => {
+    
+    console.log('data',dataToFeedList)
+  }, [dataToFeedList])
+
   const handleFromInputData = (data: string) => {
     setFromDate(data);
   }

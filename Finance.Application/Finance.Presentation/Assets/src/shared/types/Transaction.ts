@@ -4,5 +4,6 @@ export interface TransactionDto {
     amount: number,
     date: string,
     description: string,
-    category: string
+    category: string,
+    createdAt: string
 }

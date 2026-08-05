@@ -2,14 +2,14 @@
 {
     public class PagedResponse<T>
     {
-        public T Data { get; init; }
+        public T Items { get; init; }
         public int PageSize { get; init; }
         public string? NextCursor { get; init; } = string.Empty;
         public bool HasNextPage => NextCursor != string.Empty;
 
         public PagedResponse (T data, int pageSize, string? nextCursor)
         {
-            Data = data;
+            Items = data;
             PageSize = pageSize;
             NextCursor = nextCursor;
         }
