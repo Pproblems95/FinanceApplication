@@ -1,6 +1,7 @@
 import TransactionController from '../controllers/TransactionController';
 import type { TransactionDto } from "../types/Transaction";
 import { evaluateNulls } from '../utils/helpers/evaluateNulls.ts/helpers';
+import type { GetTransactionsParams } from '../types/TransactionParameters';
 
 export const TransactionService = {
     getTransactions: async (): Promise<TransactionDto[]> => {
@@ -13,24 +14,30 @@ export const TransactionService = {
             throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");
         }
     },
-    getTransactionByUserId: async (userId: number | null, fromDate?: string, untilDate?: string): Promise<TransactionDto[]> => {
+    getTransactionByUserId: async ({userId, pageSize, fromDate, untilDate, cursor}: GetTransactionsParams): Promise<TransactionDto[]> => {
         try {
             if (!userId)
                 throw new Error("ID de usuario no proporcionado o inválido.");
             
             const verifiedUserId = userId;
-            if (!fromDate || !untilDate){
-                const stringForApiCall = `${verifiedUserId}`
-                const pagedResponseData = (await TransactionController.getTransactionsByUserId(stringForApiCall)).data;
-                const data = pagedResponseData?.items
-                return evaluateNulls(data);
+            const parsedPagedSize = pageSize?.toString() ?? 10;
+            let requestBuilder = `${verifiedUserId}?pageSize=${parsedPagedSize}`;
+
+            if (fromDate){
+                requestBuilder = requestBuilder + `&?fromDate=${fromDate}`
             }
-            else{
-                const stringForApiCall = `${verifiedUserId}?fromDate=${fromDate}&untilDate=${untilDate}`
-                const pagedResponseData = (await TransactionController.getTransactionsByUserId(stringForApiCall)).data;
-                const data = pagedResponseData?.items
-                return evaluateNulls(data);
+
+            if (untilDate){
+                requestBuilder = requestBuilder + `&?untilDate=${untilDate}`
             }
+
+            if(cursor){
+                requestBuilder = requestBuilder + `&?nextCursor=${cursor}`
+            }
+            const pagedResponseData = (await TransactionController.getTransactionsByUserId(requestBuilder)).data;
+            const data = pagedResponseData?.items
+            return evaluateNulls(data);
+
         }
         catch (error) {
             throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");

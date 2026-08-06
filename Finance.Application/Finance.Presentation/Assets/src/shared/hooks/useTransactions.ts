@@ -1,6 +1,7 @@
 import {useEffect, useState } from "react"
 import { TransactionService } from "../services/TransactionServices";
 import type { TransactionDto } from "../types/Transaction";
+import type { GetTransactionsParams } from "../types/TransactionParameters";
 
 export const useTransactions = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -28,20 +29,20 @@ export const useTransactions = () => {
     return {isLoading, transactions, error}
 }
 
-export const useGetTransactionsByUserId = (userId: number | null, fromDate?: string, untilDate?: string) => {
+export const useGetTransactionsByUserId = (userId: number | null,  pageSize: number, fromDate?: string, untilDate?: string, cursor?: string | null) => {
     const [isLoadingGetUserById, setIsLoadingGetUserById] = useState(false);
     const [transactionsGetUserById, setTransactionGetUserById] = useState<TransactionDto[] | null>(null);
     const [errorGetUserById, setErrorGetUserById] = useState<unknown>(null);
 
-    const getByIdGetUserById = async () => {
+    const getTransactionsByUserId = async () => {
         try {
             setIsLoadingGetUserById(true);
             if (!fromDate || !untilDate){
-                const data = await TransactionService.getTransactionByUserId(userId);
+                const data = await TransactionService.getTransactionByUserId({userId, pageSize, cursor});
                 setTransactionGetUserById(data);
             }
             else{
-                const data = await TransactionService.getTransactionByUserId(userId, fromDate, untilDate);
+                const data = await TransactionService.getTransactionByUserId({userId, pageSize, fromDate, untilDate, cursor});
                 setTransactionGetUserById(data);
             }        
         }
@@ -56,7 +57,7 @@ export const useGetTransactionsByUserId = (userId: number | null, fromDate?: str
     useEffect(() => {
         if (!userId)
             return;
-        getByIdGetUserById();
+        getTransactionsByUserId();
     }, [userId, fromDate, untilDate]);
 
     return { 

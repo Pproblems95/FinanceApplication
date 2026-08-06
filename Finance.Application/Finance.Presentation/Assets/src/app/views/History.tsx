@@ -19,7 +19,7 @@ function History() {
   const [filteredList, setFilteredList] = useState<TransactionDto[]| null>([]);
   const [dataToFeedList, setDataToFeedList] = useState<TransactionDto[] | null>([]);
 
-  const { transactionsGetUserById, isLoadingGetUserById, errorGetUserById } = useGetTransactionsByUserId(requestedTransactionByUserId, fromDate, untilDate);
+  const { transactionsGetUserById, isLoadingGetUserById, errorGetUserById } = useGetTransactionsByUserId(requestedTransactionByUserId, 10, fromDate, untilDate, '');
   
   useEffect(() => {
     if(transactionsGetUserById)
@@ -69,7 +69,7 @@ function History() {
           <p className=' font-bold text-3xl'>History</p>
           <h4 className='text-xl'>Here you can check where you spend and gain your money from.</h4>
           <div className='max-h-[75%]'>
-            <VerticalGallery separatorColor='#151734' backgroundColor='#0A0A20' header={
+            <VerticalGallery scrollHandler={() => {}} separatorColor='#151734' backgroundColor='#0A0A20' header={
             <div className='flex flex-row w-full justify-between align-middle'> 
               <div className='flex flex-row  flex-1 gap-5 align-middle  px-2 py-5 h-full'>
                 <InputFilter value={fromDate} placeholder='From' type='date' backgroundColor='#151734' onChange={handleFromInputData} icon={<CalendarIcon size={20} color='#848FD3'/>}/>

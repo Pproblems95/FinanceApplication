@@ -6,7 +6,8 @@ interface VerticalGalleryProps<T> {
     header: React.ReactNode,
     separatorColor: string,
     renderItem: (item: T, index: number) => React.ReactNode,
-    emptyMessage?: string 
+    emptyMessage?: string,
+    scrollHandler: () => void;
 }
 
 function VerticalGallery<T>({
@@ -15,7 +16,8 @@ function VerticalGallery<T>({
     header, 
     separatorColor, 
     renderItem,
-    emptyMessage = "No hay elementos para mostrar en este momento"
+    emptyMessage = "No hay elementos para mostrar en este momento",
+    scrollHandler
 }: VerticalGalleryProps<T>){
     const safeData = Array.isArray(data) ? data : [];
     return(
