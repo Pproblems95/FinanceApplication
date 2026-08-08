@@ -2,6 +2,8 @@ import TransactionController from '../controllers/TransactionController';
 import type { TransactionDto } from "../types/Transaction";
 import { evaluateNulls } from '../utils/helpers/evaluateNulls.ts/helpers';
 import type { GetTransactionsParams } from '../types/TransactionParameters';
+import type { CleanControllerResponse } from '../types/CleanControllerResponse';
+import { data } from 'react-router-dom';
 
 export const TransactionService = {
     getTransactions: async (): Promise<TransactionDto[]> => {
@@ -14,8 +16,9 @@ export const TransactionService = {
             throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");
         }
     },
-    getTransactionByUserId: async ({userId, pageSize, fromDate, untilDate, cursor}: GetTransactionsParams): Promise<TransactionDto[]> => {
+    getTransactionByUserId: async ({userId, pageSize, fromDate, untilDate, cursor}: GetTransactionsParams): Promise<CleanControllerResponse<TransactionDto[]>> => {
         try {
+            console.log('cursor en service ', cursor)
             if (!userId)
                 throw new Error("ID de usuario no proporcionado o inválido.");
             
@@ -24,19 +27,26 @@ export const TransactionService = {
             let requestBuilder = `${verifiedUserId}?pageSize=${parsedPagedSize}`;
 
             if (fromDate){
-                requestBuilder = requestBuilder + `&?fromDate=${fromDate}`
+                requestBuilder = requestBuilder + `&fromDate=${fromDate}`
             }
 
             if (untilDate){
-                requestBuilder = requestBuilder + `&?untilDate=${untilDate}`
+                requestBuilder = requestBuilder + `&untilDate=${untilDate}`
             }
 
             if(cursor){
-                requestBuilder = requestBuilder + `&?nextCursor=${cursor}`
+                requestBuilder = requestBuilder + `&nextCursor=${cursor}`
             }
+            console.log(requestBuilder)
             const pagedResponseData = (await TransactionController.getTransactionsByUserId(requestBuilder)).data;
-            const data = pagedResponseData?.items
-            return evaluateNulls(data);
+            
+            const payload = {
+                data: pagedResponseData?.items ?? [],
+                hasNextPage: pagedResponseData?.hasNextPage ?? false,
+                nextCursor: pagedResponseData?.nextCursor ?? ""
+            }
+            console.log('payload', payload)
+            return payload
 
         }
         catch (error) {

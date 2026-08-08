@@ -14,29 +14,50 @@ function History() {
   const [requestedTransactionByUserId, setRequestedTransactionByUserId] = useState<number | null>(1);
   const [fromDate, setFromDate] = useState<string>('');
   const [untilDate, setUntilDate] = useState<string>('');
+  const [nextCursorHandler, setNextCursorHandler] = useState<string>('')
   const [positiveButtonCurrentlySelected, setPositiveButtonCurrentlySelected] = useState<boolean>(false);
   const [negativeButtonCurrentlySelected, setNegativeButtonCurrentlySelected] = useState<boolean>(false);
   const [filteredList, setFilteredList] = useState<TransactionDto[]| null>([]);
   const [dataToFeedList, setDataToFeedList] = useState<TransactionDto[] | null>([]);
 
-  const { transactionsGetUserById, isLoadingGetUserById, errorGetUserById } = useGetTransactionsByUserId(requestedTransactionByUserId, 10, fromDate, untilDate, '');
+  const { transactionsGetUserById, isLoadingGetUserById, errorGetUserById, hasNextPage, nextCursor, refetch } = useGetTransactionsByUserId(requestedTransactionByUserId, 8, fromDate, untilDate, nextCursorHandler);
   
   useEffect(() => {
-    if(transactionsGetUserById)
-      setDataToFeedList(transactionsGetUserById);
-  }, [transactionsGetUserById])
+    if (transactionsGetUserById && transactionsGetUserById.length > 0) {
+        setDataToFeedList(prev => {
+            // 🟢 Si 'prev' no tiene datos, o si estamos en la primera página (sin cursor enviado), iniciamos la lista
+            if (!prev || prev.length === 0 || !nextCursorHandler) {
+                return transactionsGetUserById;
+            }
+            
+            // 🟢 Si venimos de pedir una página siguiente, concatenamos evitando duplicados
+            const existingIds = new Set(prev.map(item => item.id));
+            const newItems = transactionsGetUserById.filter(item => !existingIds.has(item.id));
+            
+            return [...prev, ...newItems];
+        });
+    }
+  }, [transactionsGetUserById]);
 
   useEffect(() => {
     
-    console.log('data',dataToFeedList)
+    console.log(dataToFeedList, isLoadingGetUserById, hasNextPage, nextCursor)
   }, [dataToFeedList])
+
+  // useEffect(() => {
+  //   setNextCursorHandler(nextCursor)
+  // }, [nextCursor])
 
   const handleFromInputData = (data: string) => {
     setFromDate(data);
+    setNextCursorHandler(''); 
+    setDataToFeedList([]);
   }
 
   const handleUntilInputData = (data: string) => {
     setUntilDate(data);
+    setNextCursorHandler(''); 
+    setDataToFeedList([]);
   }
 
   const handleOnClickPositiveButton = (): void => {
@@ -64,12 +85,18 @@ function History() {
     }
   } 
 
+    const handleLoadMore = () => {
+      if (hasNextPage && nextCursor && !isLoadingGetUserById) {
+        setNextCursorHandler(nextCursor);
+    }
+    }
+
     return(
       <div className=' flex flex-1 flex-col w-full pr-4 '>
           <p className=' font-bold text-3xl'>History</p>
           <h4 className='text-xl'>Here you can check where you spend and gain your money from.</h4>
           <div className='max-h-[75%]'>
-            <VerticalGallery scrollHandler={() => {}} separatorColor='#151734' backgroundColor='#0A0A20' header={
+            <VerticalGallery  onLoadMore={handleLoadMore} isLoading={isLoadingGetUserById} hasNextPage={hasNextPage} separatorColor='#151734' backgroundColor='#0A0A20' header={
             <div className='flex flex-row w-full justify-between align-middle'> 
               <div className='flex flex-row  flex-1 gap-5 align-middle  px-2 py-5 h-full'>
                 <InputFilter value={fromDate} placeholder='From' type='date' backgroundColor='#151734' onChange={handleFromInputData} icon={<CalendarIcon size={20} color='#848FD3'/>}/>

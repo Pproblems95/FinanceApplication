@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useCallback, useRef } from 'react';
 
 interface VerticalGalleryProps<T> {
     backgroundColor: string,
@@ -7,7 +7,9 @@ interface VerticalGalleryProps<T> {
     separatorColor: string,
     renderItem: (item: T, index: number) => React.ReactNode,
     emptyMessage?: string,
-    scrollHandler: () => void;
+    isLoading: boolean,
+    hasNextPage: boolean,
+    onLoadMore?: () => void
 }
 
 function VerticalGallery<T>({
@@ -17,9 +19,32 @@ function VerticalGallery<T>({
     separatorColor, 
     renderItem,
     emptyMessage = "No hay elementos para mostrar en este momento",
-    scrollHandler
+    isLoading,
+    hasNextPage,
+    onLoadMore
 }: VerticalGalleryProps<T>){
     const safeData = Array.isArray(data) ? data : [];
+    const observerTarget = useRef<IntersectionObserver | null>(null);
+
+    const lastElementRef = useCallback((node: HTMLDivElement | null) => {
+        if (isLoading)
+            return;
+
+        if (observerTarget.current)
+            observerTarget.current.disconnect();
+
+        observerTarget.current = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting && hasNextPage && onLoadMore ) {
+                onLoadMore();
+            }
+        }, {
+            threshold: 0.5
+        });
+
+        if (node) 
+            observerTarget.current.observe(node);
+    }, [isLoading, hasNextPage, onLoadMore])
+
     return(
         <div className='p-5 w-full rounded-lg' style={{ background: backgroundColor }}>
             <div className='border-b-4 pb-2' style={{ borderColor: separatorColor }}>
@@ -32,11 +57,25 @@ function VerticalGallery<T>({
                         <p>{emptyMessage}</p>
                     </div>
                 ) : (
-                    safeData.map((item: T, index: number) => (
-                        <div key={index} className='my-2' onClick={() => console.log(item)}>
-                            {renderItem(item, index)}
-                        </div>
-                    ))
+                    safeData.map((item: T, index: number) => {
+                        const isLastItem = index === safeData.length - 1;
+
+                        return (
+                            <div 
+                                key={index} 
+                                ref={isLastItem ? lastElementRef : null}
+                                className='my-2'
+                            >
+                                {renderItem(item, index)}
+                            </div>
+                        );
+                    })
+                )}
+
+                {isLoading && (
+                    <div className='py-4 text-center text-indigo-400 font-medium animate-pulse'>
+                        Cargando más transacciones...
+                    </div>
                 )}
             </div>
         </div>
