@@ -17,7 +17,6 @@ function History() {
   const [nextCursorHandler, setNextCursorHandler] = useState<string>('')
   const [positiveButtonCurrentlySelected, setPositiveButtonCurrentlySelected] = useState<boolean>(false);
   const [negativeButtonCurrentlySelected, setNegativeButtonCurrentlySelected] = useState<boolean>(false);
-  const [filteredList, setFilteredList] = useState<TransactionDto[]| null>([]);
   const [dataToFeedList, setDataToFeedList] = useState<TransactionDto[] | null>([]);
 
   const { transactionsGetUserById, isLoadingGetUserById, errorGetUserById, hasNextPage, nextCursor, refetch } = useGetTransactionsByUserId(requestedTransactionByUserId, 8, fromDate, untilDate, nextCursorHandler);
@@ -25,12 +24,10 @@ function History() {
   useEffect(() => {
     if (transactionsGetUserById && transactionsGetUserById.length > 0) {
         setDataToFeedList(prev => {
-            // 🟢 Si 'prev' no tiene datos, o si estamos en la primera página (sin cursor enviado), iniciamos la lista
             if (!prev || prev.length === 0 || !nextCursorHandler) {
                 return transactionsGetUserById;
             }
             
-            // 🟢 Si venimos de pedir una página siguiente, concatenamos evitando duplicados
             const existingIds = new Set(prev.map(item => item.id));
             const newItems = transactionsGetUserById.filter(item => !existingIds.has(item.id));
             
@@ -41,7 +38,7 @@ function History() {
 
   useEffect(() => {
     
-    console.log(dataToFeedList, isLoadingGetUserById, hasNextPage, nextCursor)
+    console.log(dataToFeedList)
   }, [dataToFeedList])
 
   // useEffect(() => {
@@ -86,6 +83,7 @@ function History() {
   } 
 
     const handleLoadMore = () => {
+      console.log('load more triggered')
       if (hasNextPage && nextCursor && !isLoadingGetUserById) {
         setNextCursorHandler(nextCursor);
     }

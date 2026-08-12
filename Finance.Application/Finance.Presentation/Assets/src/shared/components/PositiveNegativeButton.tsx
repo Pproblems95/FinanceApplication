@@ -1,4 +1,3 @@
-//este boton solo lleva color de background, texto y accion de onclick como argumentos
 import { useState } from 'react'
 interface PositiveNegativeButtonProps {
     backgroundColor: string,

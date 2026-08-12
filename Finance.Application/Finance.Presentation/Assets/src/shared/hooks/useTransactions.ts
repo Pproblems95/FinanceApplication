@@ -43,14 +43,12 @@ export const useGetTransactionsByUserId = (userId: number | null,  pageSize: num
         try {
             setIsLoadingGetUserById(true);
             if (!fromDate || !untilDate){
-                console.log('cursor', cursor)
                 const payload = await TransactionService.getTransactionByUserId({userId, pageSize, cursor});
                 setTransactionGetUserById(payload.data);
                 setHasNextPage(payload.hasNextPage);
                 setNextCursor(payload.nextCursor);
             }
             else{
-                console.log('cursor', cursor)
                 const payload = await TransactionService.getTransactionByUserId({userId, pageSize, fromDate, untilDate, cursor});
                 setTransactionGetUserById(payload.data);
                 setHasNextPage(payload.hasNextPage);

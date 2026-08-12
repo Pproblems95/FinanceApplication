@@ -57,6 +57,7 @@ namespace Finance.Application.Services
             int? nextCursorId = null;
             TransactionCursor? transactionCursor;
             int clampedPageSize = Math.Clamp(pageSize, 1, 50);
+            bool shouldHaveCursor = false;
 
             try
             {
@@ -81,7 +82,18 @@ namespace Finance.Application.Services
                 if (transactions == null)
                     transactions = [];
 
-                TransactionDto? cursor = transactions.LastOrDefault();
+                if (transactions.Count > clampedPageSize)
+                {
+                    TransactionDto lastItem = transactions.Last();
+                    transactions.Remove(lastItem);
+                    shouldHaveCursor = true;
+                }
+
+                TransactionDto? cursor = null;
+
+                if (shouldHaveCursor)
+                    cursor = transactions.LastOrDefault();
+
                 string parsedCursorOrEmptyString = "";
                 if (cursor != null)
                 {
@@ -90,11 +102,11 @@ namespace Finance.Application.Services
                     parsedCursorOrEmptyString = Convert.ToBase64String(byteData);
                 }
 
-                if (transactions.Count > pageSize && transactions.Count > 1)
-                {
-                    TransactionDto lastItem = transactions.Last();
-                    transactions.Remove(lastItem);
-                }
+                //if (transactions.Count > pageSize && transactions.Count > 1)
+                //{
+                //    TransactionDto lastItem = transactions.Last();
+                //    transactions.Remove(lastItem);
+                //}
                 
                 return PagedResponse<ICollection<TransactionDto>>.Create(transactions, clampedPageSize, parsedCursorOrEmptyString);
 

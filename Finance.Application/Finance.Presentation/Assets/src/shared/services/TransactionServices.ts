@@ -45,7 +45,7 @@ export const TransactionService = {
                 hasNextPage: pagedResponseData?.hasNextPage ?? false,
                 nextCursor: pagedResponseData?.nextCursor ?? ""
             }
-            console.log('payload', payload)
+            console.log('payload returned by service', payload)
             return payload
 
         }

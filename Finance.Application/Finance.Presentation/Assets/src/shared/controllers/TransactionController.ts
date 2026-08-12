@@ -8,5 +8,4 @@ export const transactionController = {
     getTransactionsByUserId: async (request: string) => await api.get<PagedResponse<TransactionDto[]>, ResponseVM<PagedResponse<TransactionDto[]>>>(`Api/Transactions/${request}`),
     postTransaction: async (transaction: TransactionDto) => await api.post<ResponseVM<TransactionDto>, ResponseVM<TransactionDto>, TransactionDto>(`Api/Transactions`, transaction)
 }; 
-// aqui te quedaste, sepa que argumentos debe llevar el get para que jale el history, me imagino que hay que cambiar varias cosas de aqui hasta la historypage
 export default transactionController;
