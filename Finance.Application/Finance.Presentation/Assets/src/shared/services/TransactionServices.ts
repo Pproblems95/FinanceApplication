@@ -18,13 +18,13 @@ export const TransactionService = {
     },
     getTransactionByUserId: async ({userId, pageSize, fromDate, untilDate, cursor}: GetTransactionsParams): Promise<CleanControllerResponse<TransactionDto[]>> => {
         try {
-            console.log('cursor en service ', cursor)
             if (!userId)
                 throw new Error("ID de usuario no proporcionado o inválido.");
             
             const verifiedUserId = userId;
             const parsedPagedSize = pageSize?.toString() ?? 10;
             let requestBuilder = `${verifiedUserId}?pageSize=${parsedPagedSize}`;
+
 
             if (fromDate){
                 requestBuilder = requestBuilder + `&fromDate=${fromDate}`
@@ -37,7 +37,6 @@ export const TransactionService = {
             if(cursor){
                 requestBuilder = requestBuilder + `&nextCursor=${cursor}`
             }
-            console.log(requestBuilder)
             const pagedResponseData = (await TransactionController.getTransactionsByUserId(requestBuilder)).data;
             
             const payload = {
@@ -45,7 +44,6 @@ export const TransactionService = {
                 hasNextPage: pagedResponseData?.hasNextPage ?? false,
                 nextCursor: pagedResponseData?.nextCursor ?? ""
             }
-            console.log('payload returned by service', payload)
             return payload
 
         }

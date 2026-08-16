@@ -1,120 +1,173 @@
-import * as React from 'react'
-import '../../styles/App.css';
-import PositiveNegativeButton from '../../shared/components/PositiveNegativeButton'
-import { CalendarIcon, MoneyIcon } from '../../shared/components/icons'
-import InputFilter from '../../shared/components/InputFilter'
-import GalleryItem from '../../shared/components/GalleryItem'
-import VerticalGallery from '../../shared/components/VerticalGallery'
-import { useTransactions, useGetTransactionsByUserId, usePostTransaction } from '../../shared/hooks/useTransactions';
-import { useState, useEffect } from 'react';
+import * as React from 'react';
+import { useState, useEffect, useMemo } from 'react';
+
+import PositiveNegativeButton from '../../shared/components/PositiveNegativeButton';
+import { CalendarIcon, MoneyIcon } from '../../shared/components/icons';
+import InputFilter from '../../shared/components/InputFilter';
+import GalleryItem from '../../shared/components/GalleryItem';
+import VerticalGallery from '../../shared/components/VerticalGallery';
+
+import { useGetTransactionsByUserId } from '../../shared/hooks/useTransactions';
 import type { TransactionDto } from '../../shared/types/Transaction';
 
+import '../../styles/App.css';
 
 function History() {
-  const [requestedTransactionByUserId, setRequestedTransactionByUserId] = useState<number | null>(1);
+  const [requestedTransactionByUserId] = useState<number | null>(1);
   const [fromDate, setFromDate] = useState<string>('');
   const [untilDate, setUntilDate] = useState<string>('');
-  const [nextCursorHandler, setNextCursorHandler] = useState<string>('')
-  const [positiveButtonCurrentlySelected, setPositiveButtonCurrentlySelected] = useState<boolean>(false);
-  const [negativeButtonCurrentlySelected, setNegativeButtonCurrentlySelected] = useState<boolean>(false);
-  const [dataToFeedList, setDataToFeedList] = useState<TransactionDto[] | null>([]);
+  const [nextCursorHandler, setNextCursorHandler] = useState<string>('');
+  const [filterCategory, setFilterCategory] = useState<'Income' | 'Outcome' | null>(null);
 
-  const { transactionsGetUserById, isLoadingGetUserById, errorGetUserById, hasNextPage, nextCursor, refetch } = useGetTransactionsByUserId(requestedTransactionByUserId, 8, fromDate, untilDate, nextCursorHandler);
-  
+  const [transactions, setTransactions] = useState<TransactionDto[]>([]);
+
+  const {
+    transactionsGetUserById,
+    isLoadingGetUserById,
+    hasNextPage,
+    nextCursor,
+  } = useGetTransactionsByUserId(
+    requestedTransactionByUserId,
+    8,
+    fromDate,
+    untilDate,
+    nextCursorHandler
+  );
+
   useEffect(() => {
     if (transactionsGetUserById && transactionsGetUserById.length > 0) {
-        setDataToFeedList(prev => {
-            if (!prev || prev.length === 0 || !nextCursorHandler) {
-                return transactionsGetUserById;
-            }
-            
-            const existingIds = new Set(prev.map(item => item.id));
-            const newItems = transactionsGetUserById.filter(item => !existingIds.has(item.id));
-            
-            return [...prev, ...newItems];
-        });
+      setTransactions((prev) => {
+        if (!nextCursorHandler) {
+          return transactionsGetUserById;
+        }
+
+        const existingIds = new Set(prev.map((item) => item.id));
+        const newItems = transactionsGetUserById.filter((item) => !existingIds.has(item.id));
+        return [...prev, ...newItems];
+      });
     }
-  }, [transactionsGetUserById]);
+  }, [transactionsGetUserById, nextCursorHandler]);
 
-  useEffect(() => {
-    
-    console.log(dataToFeedList)
-  }, [dataToFeedList])
-
-  // useEffect(() => {
-  //   setNextCursorHandler(nextCursor)
-  // }, [nextCursor])
-
-  const handleFromInputData = (data: string) => {
+  const handleFromDateChange = (data: string) => {
     setFromDate(data);
-    setNextCursorHandler(''); 
-    setDataToFeedList([]);
-  }
+    setNextCursorHandler('');
+    setTransactions([]);
+  };
 
-  const handleUntilInputData = (data: string) => {
+  const handleUntilDateChange = (data: string) => {
     setUntilDate(data);
-    setNextCursorHandler(''); 
-    setDataToFeedList([]);
-  }
+    setNextCursorHandler('');
+    setTransactions([]);
+  };
 
-  const handleOnClickPositiveButton = (): void => {
-    if(positiveButtonCurrentlySelected){
-      setPositiveButtonCurrentlySelected(false);
-      setDataToFeedList(transactionsGetUserById);
-      
-    } 
-    else{
-      setPositiveButtonCurrentlySelected(true);
-      const filteredArray: TransactionDto[] | null = (transactionsGetUserById?.filter(t => t.category === "Income")) ?? null;
-      setDataToFeedList(filteredArray);
-    }
-  } 
+  const handleToggleIncomeFilter = () => {
+    setFilterCategory((prev) => (prev === 'Income' ? null : 'Income'));
+  };
 
-  const handleOnClickNegativeButton = (): void => {
-    if(negativeButtonCurrentlySelected){
-      setNegativeButtonCurrentlySelected(false);
-      setDataToFeedList(transactionsGetUserById);
-    }
-    else {
-      setNegativeButtonCurrentlySelected(true);
-      const filteredArray: TransactionDto[] | null = (transactionsGetUserById?.filter(t => t.category === "Outcome")) ?? null;
-      setDataToFeedList(filteredArray);
-    }
-  } 
+  const handleToggleOutcomeFilter = () => {
+    setFilterCategory((prev) => (prev === 'Outcome' ? null : 'Outcome'));
+  };
 
-    const handleLoadMore = () => {
-      console.log('load more triggered')
-      if (hasNextPage && nextCursor && !isLoadingGetUserById) {
-        setNextCursorHandler(nextCursor);
+  const handleLoadMore = () => {
+    if (hasNextPage && nextCursor && !isLoadingGetUserById) {
+      setNextCursorHandler(nextCursor);
     }
-    }
+  };
 
-    return(
-      <div className=' flex flex-1 flex-col w-full pr-4 '>
-          <p className=' font-bold text-3xl'>History</p>
-          <h4 className='text-xl'>Here you can check where you spend and gain your money from.</h4>
-          <div className='max-h-[75%]'>
-            <VerticalGallery  onLoadMore={handleLoadMore} isLoading={isLoadingGetUserById} hasNextPage={hasNextPage} separatorColor='#151734' backgroundColor='#0A0A20' header={
-            <div className='flex flex-row w-full justify-between align-middle'> 
-              <div className='flex flex-row  flex-1 gap-5 align-middle  px-2 py-5 h-full'>
-                <InputFilter value={fromDate} placeholder='From' type='date' backgroundColor='#151734' onChange={handleFromInputData} icon={<CalendarIcon size={20} color='#848FD3'/>}/>
-                <InputFilter value={untilDate} placeholder='From' type='date' backgroundColor='#151734' onChange={handleUntilInputData} icon={<CalendarIcon size={20} color='#848FD3'/>}/>
+  const visibleTransactions = useMemo(() => {
+    if (!filterCategory) return transactions;
+    return transactions.filter((t) => t.category === filterCategory);
+  }, [transactions, filterCategory]);
+
+  return (
+    <div className="flex flex-1 flex-col w-full pr-4">
+      <p className="font-bold text-3xl">History</p>
+      <h4 className="text-xl">Here you can check where you spend and gain your money from.</h4>
+
+      <div className="max-h-[75%]">
+        <VerticalGallery
+          onLoadMore={handleLoadMore}
+          isLoading={isLoadingGetUserById}
+          hasNextPage={hasNextPage}
+          separatorColor="#151734"
+          backgroundColor="#0A0A20"
+          data={visibleTransactions}
+          header={
+            <div className="flex flex-row w-full justify-between align-middle">
+              <div className="flex flex-row flex-1 gap-5 align-middle px-2 py-5 h-full">
+                <InputFilter
+                  value={fromDate}
+                  placeholder="From"
+                  type="date"
+                  backgroundColor="#151734"
+                  onChange={handleFromDateChange}
+                  icon={<CalendarIcon size={20} color="#848FD3" />}
+                />
+                <InputFilter
+                  value={untilDate}
+                  placeholder="Until"
+                  type="date"
+                  backgroundColor="#151734"
+                  onChange={handleUntilDateChange}
+                  icon={<CalendarIcon size={20} color="#848FD3" />}
+                />
               </div>
-              <div className='flex flex-row flex-1 justify-end-safe gap-5  items-center '>
-                <PositiveNegativeButton text='Filter by income' isCurrentlySelected={positiveButtonCurrentlySelected} backgroundColor='#1E9326' hoveredBackgroundColor='#32A039' selectedBackgroundColor='#15691b' onClick={handleOnClickPositiveButton}/>
-                <PositiveNegativeButton text='Filter by outcome' isCurrentlySelected={negativeButtonCurrentlySelected} backgroundColor='#CE311C' hoveredBackgroundColor='#f24822' selectedBackgroundColor='#B32917' onClick={handleOnClickNegativeButton}/>
+
+              <div className="flex flex-row flex-1 justify-end-safe gap-5 items-center">
+                <PositiveNegativeButton
+                  text="Filter by income"
+                  isCurrentlySelected={filterCategory === 'Income'}
+                  backgroundColor="#1E9326"
+                  hoveredBackgroundColor="#32A039"
+                  selectedBackgroundColor="#15691b"
+                  onClick={handleToggleIncomeFilter}
+                />
+                <PositiveNegativeButton
+                  text="Filter by outcome"
+                  isCurrentlySelected={filterCategory === 'Outcome'}
+                  backgroundColor="#CE311C"
+                  hoveredBackgroundColor="#f24822"
+                  selectedBackgroundColor="#B32917"
+                  onClick={handleToggleOutcomeFilter}
+                />
               </div>
             </div>
-          } data={dataToFeedList ?? []} renderItem={(item: TransactionDto) => (
-            <GalleryItem icon={<MoneyIcon size={35} color={item.category == 'Income' ? '#1E9326' : '#CE311C'}/>} title={item.category} description={item.description} 
-            titleColor='#848FD3' descriptionColor='#848FD3' backgroundColor='#12142D' display={<div onClick={() => console.log(item)} className=' w-full h-full flex justify-center items-center'> 
-            <p className='text-lg font-bold' style={{color:  item.category == 'Income' ? '#1E9326' : '#CE311C'}}>${item.amount}</p>
-          </div>}/>
-          )}/>
-          </div>
-          
-        </div>
-    )
+          }
+          renderItem={(item: TransactionDto) => (
+            <GalleryItem
+              key={item.id}
+              icon={
+                <MoneyIcon
+                  size={35}
+                  color={item.category === 'Income' ? '#1E9326' : '#CE311C'}
+                />
+              }
+              title={item.category}
+              description={item.description}
+              titleColor="#848FD3"
+              descriptionColor="#848FD3"
+              backgroundColor="#12142D"
+              display={
+                <div
+                  onClick={() => console.log(item)}
+                  className="w-full h-full flex justify-center items-center"
+                >
+                  <p
+                    className="text-lg font-bold"
+                    style={{
+                      color: item.category === 'Income' ? '#1E9326' : '#CE311C',
+                    }}
+                  >
+                    ${item.amount}
+                  </p>
+                </div>
+              }
+            />
+          )}
+        />
+      </div>
+    </div>
+  );
 }
 
-export default History
+export default History;

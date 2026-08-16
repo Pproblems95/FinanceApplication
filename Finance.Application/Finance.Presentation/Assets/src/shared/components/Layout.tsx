@@ -13,9 +13,6 @@ function Layout() {
     setIsSideBarOpen(state);
   }
 
-  useEffect(() => {
-    console.log(isSideBarOpen);
-  }, [isSideBarOpen])
 
   return (
     <div className='containerReact flex w-full h-screen overflow-hidden'>

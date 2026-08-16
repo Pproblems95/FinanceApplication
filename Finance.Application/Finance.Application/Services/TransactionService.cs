@@ -101,12 +101,6 @@ namespace Finance.Application.Services
                     byte[] byteData = Encoding.UTF8.GetBytes(jsonString);
                     parsedCursorOrEmptyString = Convert.ToBase64String(byteData);
                 }
-
-                //if (transactions.Count > pageSize && transactions.Count > 1)
-                //{
-                //    TransactionDto lastItem = transactions.Last();
-                //    transactions.Remove(lastItem);
-                //}
                 
                 return PagedResponse<ICollection<TransactionDto>>.Create(transactions, clampedPageSize, parsedCursorOrEmptyString);
 
