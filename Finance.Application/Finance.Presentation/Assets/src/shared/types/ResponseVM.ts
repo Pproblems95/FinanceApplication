@@ -3,4 +3,4 @@ export interface ResponseVM<T> {
     data: T | null,
     message: string,
     errors: string[] | null
-}
+};

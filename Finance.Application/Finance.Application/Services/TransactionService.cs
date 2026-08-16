@@ -1,11 +1,15 @@
 ﻿using AutoMapper;
+using Finance.Application.Common;
 using Finance.Application.DTOs;
 using Finance.Application.Interfaces.Services;
 using Finance.Domain.Entities;
 using Finance.Domain.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Text;
+using System.Text.Json;
 
 
 namespace Finance.Application.Services
@@ -45,15 +49,66 @@ namespace Finance.Application.Services
 
             return transactions;
         }
-
-        public ICollection<TransactionDto> GetTransactionsByUserId(int userId)
+        public async Task<PagedResponse<ICollection<TransactionDto>>> GetTransactionsByUserId(int userId, string? fromDate, string? untilDate, string? nextCursor, int pageSize)
         {
-            ICollection<TransactionDto> transactions = _mapper.Map<ICollection<TransactionDto>>(_repository.GetTransactionsByUserId(userId));
+            DateTime? parsedFromDate = null;
+            DateTime? parsedUntilDate = null;
+            DateTime? nextCursorCreatedAt = null;
+            int? nextCursorId = null;
+            TransactionCursor? transactionCursor;
+            int clampedPageSize = Math.Clamp(pageSize, 1, 50);
+            bool shouldHaveCursor = false;
 
-            if (transactions == null)
-                transactions = [];
+            try
+            {
+                if (nextCursor != null)
+                {
+                    byte[] jsonBytes = Convert.FromBase64String(nextCursor);
+                    string jsonString = Encoding.UTF8.GetString(jsonBytes);
+                    transactionCursor = JsonSerializer.Deserialize<TransactionCursor>(jsonString);
+                    nextCursorCreatedAt = transactionCursor?.CreatedAt;
+                    nextCursorId = transactionCursor?.Id;
+                }
 
-            return transactions;
+                if (fromDate != null && untilDate != null)
+                {
+                    DateTime localFrom = DateTime.Parse(fromDate, CultureInfo.InvariantCulture);
+                    DateTime localUntil = DateTime.Parse(untilDate, CultureInfo.InvariantCulture);
+                    parsedFromDate = DateTime.SpecifyKind(localFrom, DateTimeKind.Utc);
+                    parsedUntilDate = DateTime.SpecifyKind(localUntil, DateTimeKind.Utc);
+                }
+                ICollection<TransactionDto> transactions = _mapper.Map<ICollection<TransactionDto>>(await _repository.GetTransactionsByUserId(userId, parsedFromDate, parsedUntilDate, nextCursorCreatedAt, nextCursorId, clampedPageSize));
+                
+                if (transactions == null)
+                    transactions = [];
+
+                if (transactions.Count > clampedPageSize)
+                {
+                    TransactionDto lastItem = transactions.Last();
+                    transactions.Remove(lastItem);
+                    shouldHaveCursor = true;
+                }
+
+                TransactionDto? cursor = null;
+
+                if (shouldHaveCursor)
+                    cursor = transactions.LastOrDefault();
+
+                string parsedCursorOrEmptyString = "";
+                if (cursor != null)
+                {
+                    string jsonString = JsonSerializer.Serialize(cursor);
+                    byte[] byteData = Encoding.UTF8.GetBytes(jsonString);
+                    parsedCursorOrEmptyString = Convert.ToBase64String(byteData);
+                }
+                
+                return PagedResponse<ICollection<TransactionDto>>.Create(transactions, clampedPageSize, parsedCursorOrEmptyString);
+
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception($"Ocurrio un error al obtener las transacciones.");
+            }
         }
 
         public TransactionDto GetTransactionByTransactionId(int transactionId)

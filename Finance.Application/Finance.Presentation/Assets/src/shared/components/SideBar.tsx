@@ -1,13 +1,15 @@
-import * as React from 'react'
 import tempProfile from '../utils/tempProfile.jpg';
 import { useAuth0 } from '@auth0/auth0-react';
 import {FlagIcon, UserIcon, MoneyIcon, LogOutIcon, BarChartIcon, CalendarIcon, SettingsIcon, HamburgerIcon} from '../components/icons'
 import SideBarButton from './SideBarButton';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../styles/SideBar.css'
 
-function SideBar() {
+interface sideBarProps {
+  onStatusChange: (data: boolean) => void
+};
+
+function SideBar({onStatusChange}: sideBarProps) {
 
   const [isOpen, setIsOpen] = useState(true)
   const { user, isAuthenticated } = useAuth0();
@@ -22,6 +24,9 @@ function SideBar() {
   ]
   const navigate = useNavigate();
   const location = useLocation();
+  useEffect(() => {
+    onStatusChange(isOpen);
+  }, [isOpen])
 
   return (
     <div>
@@ -35,26 +40,21 @@ function SideBar() {
           </button>
         )}
       </div>
-      <div 
-        className={`
-        sidebarContainer flex flex-col justify-between mt-5 mb-5
-        transform transition-all duration-400 ease-in-out
-        ${isOpen ? 'translate-x-0 opacity-100 ml-5' : '-translate-x-full opacity-0 ml-0'}
-      `}>
+      <div className={`sidebarContainer w-80 h-full flex flex-col justify-between py-5 px-3 ${isOpen ? 'opacity-100' : 'opacity-0 duration-300'}`}>
         
-        <div className='w-full flex flex-col items-center mt-4' >
-          <div className='h-auto font-bold w-full items-end justify-end  text-end  mr-7 hover:cursor-pointer'>
-            <div  onClick={() => {setIsOpen(false)}}>
+        <div className='w-full flex flex-col items-center mt-4'>
+          <div className='h-auto font-bold w-full text-end pr-4 hover:cursor-pointer'>
+            <div onClick={() => setIsOpen(false)} className="inline-block p-1">
               X
             </div>
-        </div>
-          <div  className='w-25 h-25 overflow-hidden bg-black border-white border-4 rounded-full flex items-center justify-center my-5 mx-5' style={{}}>
-            <img src={user?.picture} className="w-full h-full object-cover" />
           </div>
-          <div className='font-bold text-lg'>
-            {user?.name}
+          <div className='w-24 h-24 overflow-hidden bg-black border-white border-4 rounded-full flex items-center justify-center my-3'>
+            <img src={user?.picture} className="w-full h-full object-cover" alt="User avatar" />
           </div>
-          <div>
+          <div className='font-bold text-lg text-center '>
+            {user?.name ?? 'usuario'}
+          </div>
+          <div className='text-xs text-gray-400'>
             {user?.updated_at}
           </div>
         </div>

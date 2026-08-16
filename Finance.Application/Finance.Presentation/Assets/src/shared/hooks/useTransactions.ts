@@ -1,6 +1,7 @@
-import {useEffect, useState } from "react"
+import {useCallback, useEffect, useState } from "react"
 import { TransactionService } from "../services/TransactionServices";
 import type { TransactionDto } from "../types/Transaction";
+import type { GetTransactionsParams } from "../types/TransactionParameters";
 
 export const useTransactions = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -28,16 +29,31 @@ export const useTransactions = () => {
     return {isLoading, transactions, error}
 }
 
-export const useGetTransactionsByUserId = (userId: number | null) => {
+export const useGetTransactionsByUserId = (userId: number | null,  pageSize: number, fromDate?: string, untilDate?: string, cursor?: string | null) => {
     const [isLoadingGetUserById, setIsLoadingGetUserById] = useState(false);
     const [transactionsGetUserById, setTransactionGetUserById] = useState<TransactionDto[] | null>(null);
     const [errorGetUserById, setErrorGetUserById] = useState<unknown>(null);
+    const [hasNextPage, setHasNextPage] = useState<boolean>(false);
+    const [nextCursor, setNextCursor] = useState<string>('');
 
-    const getByIdGetUserById = async () => {
+    const getTransactionsByUserId = useCallback(async () => {
+        if (!userId)
+            return;
+
         try {
             setIsLoadingGetUserById(true);
-            const data = await TransactionService.getTransactionByUserId(userId);
-            setTransactionGetUserById(data);
+            if (!fromDate || !untilDate){
+                const payload = await TransactionService.getTransactionByUserId({userId, pageSize, cursor});
+                setTransactionGetUserById(payload.data);
+                setHasNextPage(payload.hasNextPage);
+                setNextCursor(payload.nextCursor);
+            }
+            else{
+                const payload = await TransactionService.getTransactionByUserId({userId, pageSize, fromDate, untilDate, cursor});
+                setTransactionGetUserById(payload.data);
+                setHasNextPage(payload.hasNextPage);
+                setNextCursor(payload.nextCursor);
+            }        
         }
         catch (error: unknown) {
             setErrorGetUserById(error);
@@ -45,18 +61,19 @@ export const useGetTransactionsByUserId = (userId: number | null) => {
         finally {
             setIsLoadingGetUserById(false);
         }
-    }
+    }, [userId, fromDate, untilDate, pageSize, cursor])
 
     useEffect(() => {
-        if (!userId)
-            return;
-        getByIdGetUserById();
-    }, [userId]);
+        getTransactionsByUserId();
+    }, [getTransactionsByUserId]);
 
     return { 
         isLoadingGetUserById, 
         transactionsGetUserById, 
-        errorGetUserById 
+        errorGetUserById ,
+        hasNextPage,
+        nextCursor,
+        refetch: getTransactionsByUserId
     };
 };
 

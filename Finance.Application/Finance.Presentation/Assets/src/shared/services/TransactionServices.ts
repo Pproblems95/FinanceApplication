@@ -1,28 +1,51 @@
 import TransactionController from '../controllers/TransactionController';
 import type { TransactionDto } from "../types/Transaction";
-import { evaluteNulls } from '../utils/helpers/evaluateNulls.ts/helpers';
+import { evaluateNulls } from '../utils/helpers/evaluateNulls.ts/helpers';
+import type { GetTransactionsParams } from '../types/TransactionParameters';
+import type { CleanControllerResponse } from '../types/CleanControllerResponse';
+import { data } from 'react-router-dom';
 
 export const TransactionService = {
     getTransactions: async (): Promise<TransactionDto[]> => {
         try {
             const data = (await TransactionController.getAllTransactions()).data;
             
-            return evaluteNulls(data);
+            return evaluateNulls(data);
         }
         catch (error) {
             throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");
         }
     },
-    getTransactionByUserId: async (userId: number | null): Promise<TransactionDto[]> => {
+    getTransactionByUserId: async ({userId, pageSize, fromDate, untilDate, cursor}: GetTransactionsParams): Promise<CleanControllerResponse<TransactionDto[]>> => {
         try {
-            if(!userId)
+            if (!userId)
                 throw new Error("ID de usuario no proporcionado o inválido.");
             
-            const verifiedUserId = userId
+            const verifiedUserId = userId;
+            const parsedPagedSize = pageSize?.toString() ?? 10;
+            let requestBuilder = `${verifiedUserId}?pageSize=${parsedPagedSize}`;
+
+
+            if (fromDate){
+                requestBuilder = requestBuilder + `&fromDate=${fromDate}`
+            }
+
+            if (untilDate){
+                requestBuilder = requestBuilder + `&untilDate=${untilDate}`
+            }
+
+            if(cursor){
+                requestBuilder = requestBuilder + `&nextCursor=${cursor}`
+            }
+            const pagedResponseData = (await TransactionController.getTransactionsByUserId(requestBuilder)).data;
             
-            const data = (await TransactionController.getTransactionsByUserId(verifiedUserId)).data;
-            
-            return evaluteNulls(data);
+            const payload = {
+                data: pagedResponseData?.items ?? [],
+                hasNextPage: pagedResponseData?.hasNextPage ?? false,
+                nextCursor: pagedResponseData?.nextCursor ?? ""
+            }
+            return payload
+
         }
         catch (error) {
             throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");
@@ -32,16 +55,16 @@ export const TransactionService = {
         try {
             if(!transaction)
                 throw new Error("Transaccion no valida");
-            if(transaction.Category !== "Income" && transaction.Category !== "Outcome")
+            if(transaction.category !== "Income" && transaction.category !== "Outcome")
                 throw new Error("Categoria de transaccion no valida");
-            if(transaction.Description.length > 500)
+            if(transaction.description.length > 500)
                 throw new Error("La descripcion no puede ser mayor a 500 caracteres");
-            if(transaction.Amount <= 0)
+            if(transaction.amount <= 0)
                 throw new Error("No se puede agregar una cantidad menor a 0");
             
             const transactionControllerResult = (await TransactionController.postTransaction(transaction)).data;
             
-            return evaluteNulls(transactionControllerResult);
+            return evaluateNulls(transactionControllerResult);
         }
         catch (error) {
             throw new Error("Hubo un error al subir tus datos. Intenta de nuevo mas tarde.");

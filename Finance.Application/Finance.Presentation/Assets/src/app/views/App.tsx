@@ -5,6 +5,8 @@ import type { TransactionDto } from '../../shared/types/Transaction';
 
 function App() {
   const [requestedTransactionByUserId, setRequestedTransactionByUserId] = useState<number | null>(null);
+  const [fromDate, setFromDate] = useState<string>("2026-05-01T00:00:00.000Z");
+  const [untilDate, setUntilDate] = useState<string>(new Date().toISOString());
   const [newTransaction, setNewTransaction] = useState<TransactionDto | null>(null);
 
   // --- NUEVOS ESTADOS PARA EL FORMULARIO ---
@@ -14,7 +16,7 @@ function App() {
   const [userId, setUserId] = useState<number>(0);
 
   const { transactions, isLoading, error } = useTransactions();
-  const { transactionsGetUserById, isLoadingGetUserById, errorGetUserById } = useGetTransactionsByUserId(requestedTransactionByUserId);
+  const { transactionsGetUserById, isLoadingGetUserById, errorGetUserById } = useGetTransactionsByUserId(requestedTransactionByUserId, fromDate, untilDate);
   const { transactionPost, isLoadingPostTransaction, errorPostTransaction } = usePostTransaction(newTransaction);
 
   useEffect(() => {
@@ -82,12 +84,12 @@ function App() {
                 console.log("Datos listos:", { userId, amount, description, category });
                 
                 setNewTransaction({
-                  Id: 0, 
-                  UserId:userId,
-                  Amount: amount,
-                  Description: description,
-                  Date: new Date().toISOString(),
-                  Category: category
+                  id: 0, 
+                  userId:userId,
+                  amount: amount,
+                  description: description,
+                  date: new Date().toISOString(),
+                  category: category
                  });
                  console.log(transactionPost);
               }}
