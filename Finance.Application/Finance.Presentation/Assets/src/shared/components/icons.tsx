@@ -1,5 +1,5 @@
 import type { IconBaseProps } from 'react-icons/lib';
-import { FaChartSimple, FaMoneyBills, FaFlag, FaCalendarDays, FaGear, FaUser } from "react-icons/fa6";
+import { FaChartSimple, FaMoneyBills, FaFlag, FaCalendarDays, FaGear, FaUser, FaRegCreditCard, FaCirclePlus } from "react-icons/fa6";
 import { BiLogOut } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 
@@ -33,4 +33,12 @@ export const LogOutIcon = (props: IconBaseProps) => (
 
 export const HamburgerIcon = (props: IconBaseProps) => (
     <RxHamburgerMenu  {...props} />
+)
+
+export const CreditCardIcon = (props: IconBaseProps) => (
+    <FaRegCreditCard  {...props} />
+)
+
+export const PlusIcon = (props: IconBaseProps) => (
+    <FaCirclePlus {...props} />
 )
