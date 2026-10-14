@@ -37,7 +37,7 @@ function SideBarButton({ icon, name, description, isCurrentlySelected, customCol
                 {icon}
             </div>
             <div>
-                <div>
+                <div className='mx-2'>
                     {name}
                 </div>
                 <div>

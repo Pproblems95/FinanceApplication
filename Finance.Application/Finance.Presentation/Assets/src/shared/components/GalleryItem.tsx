@@ -17,9 +17,9 @@ function GalleryItem({icon, title, description, display, backgroundColor, titleC
       <div className=' w-full flex flex-1 items-center justify-center '>
         {icon}
       </div>
-      <div className=' flex flex-3 flex-col bg-danger'>
-        <span style={{color: titleColor}} className='font-bold text-2xl'>{title}</span>
-        <span style={{color:descriptionColor}} className='text-md'>{description}</span>
+      <div className=' flex flex-3 flex-col min-w-0 bg-danger'>
+        <span style={{color: titleColor}} className='font-bold text-2xl truncate'>{title}</span>
+        <span style={{color:descriptionColor}} className='text-md truncate'>{description}</span>
       </div>
       <div className='flex flex-1'>
         {display}

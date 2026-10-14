@@ -12,6 +12,8 @@ namespace Finance.Domain.Entities
         public DateTime Date { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
+        // 0 = Constant, 1 = Variable
+        public int TransactionType { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public User User { get; set; }

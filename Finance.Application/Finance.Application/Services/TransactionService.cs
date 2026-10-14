@@ -49,7 +49,7 @@ namespace Finance.Application.Services
 
             return transactions;
         }
-        public async Task<PagedResponse<ICollection<TransactionDto>>> GetTransactionsByUserId(int userId, string? fromDate, string? untilDate, string? nextCursor, int pageSize)
+        public async Task<PagedResponse<ICollection<TransactionDto>>> GetTransactionsByUserId(int userId, string? fromDate, string? untilDate, string? nextCursor, int pageSize, int? transactionType, string? category)
         {
             DateTime? parsedFromDate = null;
             DateTime? parsedUntilDate = null;
@@ -77,7 +77,7 @@ namespace Finance.Application.Services
                     parsedFromDate = DateTime.SpecifyKind(localFrom, DateTimeKind.Utc);
                     parsedUntilDate = DateTime.SpecifyKind(localUntil, DateTimeKind.Utc);
                 }
-                ICollection<TransactionDto> transactions = _mapper.Map<ICollection<TransactionDto>>(await _repository.GetTransactionsByUserId(userId, parsedFromDate, parsedUntilDate, nextCursorCreatedAt, nextCursorId, clampedPageSize));
+                ICollection<TransactionDto> transactions = _mapper.Map<ICollection<TransactionDto>>(await _repository.GetTransactionsByUserId(userId, parsedFromDate, parsedUntilDate, nextCursorCreatedAt, nextCursorId, clampedPageSize, transactionType, category));
                 
                 if (transactions == null)
                     transactions = [];

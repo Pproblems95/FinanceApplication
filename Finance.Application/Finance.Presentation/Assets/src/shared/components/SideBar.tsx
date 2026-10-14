@@ -68,7 +68,7 @@ function SideBar({onStatusChange}: sideBarProps) {
                 icon={option.icon}
                 name={option.name}
                 description={option.description}
-                isCurrentlySelected={location.pathname === option.route}
+                isCurrentlySelected={location.pathname === option.route || (option.route !== '/home' && location.pathname.startsWith(option.route + '/'))}
                 onClick={() => {navigate(option.route)}}
               />
             ))}

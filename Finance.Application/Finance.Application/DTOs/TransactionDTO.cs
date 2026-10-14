@@ -13,6 +13,8 @@ namespace Finance.Application.DTOs
         public DateTime CreatedAt { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
+        // 0 = Constant, 1 = Variable
+        public int TransactionType { get; set; }
 
 
     }

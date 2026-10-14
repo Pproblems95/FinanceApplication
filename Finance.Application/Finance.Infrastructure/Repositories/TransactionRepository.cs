@@ -23,11 +23,17 @@ namespace Finance.Infrastructure.Repositories
             return _context.Transactions.OrderBy(t => t.Id).ToList();
         }
 
-        public async Task<ICollection<Transaction>> GetTransactionsByUserId(int userId, DateTime? fromDate, DateTime? untilDate, DateTime? nextCursorCreatedAt, int? nextCursorId, int pageSize)
+        public async Task<ICollection<Transaction>> GetTransactionsByUserId(int userId, DateTime? fromDate, DateTime? untilDate, DateTime? nextCursorCreatedAt, int? nextCursorId, int pageSize, int? transactionType, string? category)
         {
             IQueryable<Transaction>? query = _context.Transactions
             .AsNoTracking()
             .Where(t => t.UserId == userId);
+
+            if (!string.IsNullOrWhiteSpace(category))
+                query = query.Where(t => t.Category == category);
+
+            if (transactionType.HasValue)
+                query = query.Where(t => t.TransactionType == transactionType.Value);
 
             if (fromDate.HasValue)
                 query = query.Where(t => t.Date >= fromDate.Value);

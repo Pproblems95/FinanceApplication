@@ -16,7 +16,7 @@ export const TransactionService = {
             throw new Error("Hubo un error al cargar tus datos. Intenta de nuevo mas tarde.");
         }
     },
-    getTransactionByUserId: async ({userId, pageSize, fromDate, untilDate, cursor}: GetTransactionsParams): Promise<CleanControllerResponse<TransactionDto[]>> => {
+    getTransactionByUserId: async ({userId, pageSize, fromDate, untilDate, cursor, transactionType, category}: GetTransactionsParams): Promise<CleanControllerResponse<TransactionDto[]>> => {
         try {
             if (!userId)
                 throw new Error("ID de usuario no proporcionado o inválido.");
@@ -36,6 +36,14 @@ export const TransactionService = {
 
             if(cursor){
                 requestBuilder = requestBuilder + `&nextCursor=${cursor}`
+            }
+
+            if(transactionType !== undefined && transactionType !== null){
+                requestBuilder = requestBuilder + `&transactionType=${transactionType}`
+            }
+
+            if(category){
+                requestBuilder = requestBuilder + `&category=${encodeURIComponent(category)}`
             }
             const pagedResponseData = (await TransactionController.getTransactionsByUserId(requestBuilder)).data;
             

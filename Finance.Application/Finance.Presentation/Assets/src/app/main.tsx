@@ -7,6 +7,7 @@ import App from './views/App'
 import Layout from '../shared/components/Layout'
 import Login from './views/Login';
 import TransactionRegistry from './views/TransactionRegistry';
+import RegistryOptions from './views/RegistryOptions';
 import Goals from './views/Goals';
 import History from './views/History';
 import Configurations from './views/Configurations';
@@ -34,7 +35,8 @@ const router = createHashRouter([
 
   children: [
     { index: true, element: <App/> },
-    { path: 'transactionregistry', element: <TransactionRegistry/> },  
+    { path: 'transactionregistry', element: <TransactionRegistry/> },
+    { path: 'transactionregistry/registryoptions', element: <RegistryOptions/> },
     { path: 'goals', element: <Goals/> },
     { path: 'history', element: <History/> },
     { path: 'configurations', element: <Configurations/> },

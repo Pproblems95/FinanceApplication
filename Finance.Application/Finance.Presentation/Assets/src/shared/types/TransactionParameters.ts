@@ -4,4 +4,6 @@ export interface GetTransactionsParams {
     fromDate?: string;
     untilDate?: string;
     cursor?: string | null;
+    transactionType?: number | null;
+    category?: string | null;
 }

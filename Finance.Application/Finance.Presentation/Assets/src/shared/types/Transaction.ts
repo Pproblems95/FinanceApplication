@@ -5,5 +5,7 @@ export interface TransactionDto {
     date: string,
     description: string,
     category: string,
+    // 0 = Constant, 1 = Variable
+    transactionType: number,
     createdAt: string
 }

@@ -10,7 +10,7 @@ namespace Finance.Application.Interfaces.Services
     public interface ITransactionService
     {
         public ICollection<TransactionDto> GetTransactions();
-        public Task<PagedResponse<ICollection<TransactionDto>>> GetTransactionsByUserId(int userId, string? fromDate, string? untilDate, string? nextCursor, int pageSize);
+        public Task<PagedResponse<ICollection<TransactionDto>>> GetTransactionsByUserId(int userId, string? fromDate, string? untilDate, string? nextCursor, int pageSize, int? transactionType, string? category);
         public TransactionDto CreateTransaction(TransactionDto transaction);
         public TransactionDto GetTransactionByTransactionId(int transactionId);
     }

@@ -19,6 +19,7 @@ namespace Finance.Infrastructure.Persistence.Configurations
             builder.Property(t => t.Date).IsRequired();
             builder.Property(t => t.Description).HasMaxLength(500);
             builder.Property(t => t.Category).HasMaxLength(100);
+            builder.Property(t => t.TransactionType).IsRequired().HasDefaultValue(0);
             builder.Property(t => t.CreatedAt).IsRequired().HasDefaultValueSql("now()");
             builder.Property(t => t.UpdatedAt);
 
@@ -37,6 +38,7 @@ namespace Finance.Infrastructure.Persistence.Configurations
                     Date = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc),
                     Description = "Suscripción Netflix",
                     Category = "Entretenimiento",
+                    TransactionType = 0,
                     CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Transaction
@@ -47,6 +49,7 @@ namespace Finance.Infrastructure.Persistence.Configurations
                     Date = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc),
                     Description = "Pago de Renta",
                     Category = "Vivienda",
+                    TransactionType = 0,
                     CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Transaction
@@ -57,6 +60,7 @@ namespace Finance.Infrastructure.Persistence.Configurations
                     Date = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc),
                     Description = "Café Starbucks",
                     Category = "Alimentación",
+                    TransactionType = 1,
                     CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, DateTimeKind.Utc)
                 }
             );

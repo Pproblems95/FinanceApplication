@@ -118,6 +118,11 @@ namespace Finance.Infrastructure.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("character varying(500)");
 
+                    b.Property<int>("TransactionType")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0);
+
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -139,6 +144,7 @@ namespace Finance.Infrastructure.Migrations
                             CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, 0, DateTimeKind.Utc),
                             Date = new DateTime(2026, 2, 4, 0, 0, 0, 0, DateTimeKind.Utc),
                             Description = "Suscripción Netflix",
+                            TransactionType = 0,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = 1
                         },
@@ -150,6 +156,7 @@ namespace Finance.Infrastructure.Migrations
                             CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, 0, DateTimeKind.Utc),
                             Date = new DateTime(2026, 2, 4, 0, 0, 0, 0, DateTimeKind.Utc),
                             Description = "Pago de Renta",
+                            TransactionType = 0,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = 2
                         },
@@ -161,6 +168,7 @@ namespace Finance.Infrastructure.Migrations
                             CreatedAt = new DateTime(2026, 2, 4, 0, 0, 0, 0, DateTimeKind.Utc),
                             Date = new DateTime(2026, 2, 4, 0, 0, 0, 0, DateTimeKind.Utc),
                             Description = "Café Starbucks",
+                            TransactionType = 1,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = 3
                         });

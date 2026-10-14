@@ -45,10 +45,10 @@ namespace Finance.Api.Controllers
         [HttpGet("{userId}")]
         [ProducesResponseType(200, Type = typeof(PagedResponse<ICollection<Transaction>>))]
         public async Task<IActionResult> GetTransactionsByUserId( [FromRoute] int userId,  [FromQuery] string? nextCursor,
-            [FromQuery] string? fromDate, [FromQuery] string? untilDate, [FromQuery] int pageSize = 10)
+            [FromQuery] string? fromDate, [FromQuery] string? untilDate, [FromQuery] int? transactionType, [FromQuery] string? category, [FromQuery] int pageSize = 10)
 
         {
-            PagedResponse<ICollection<TransactionDto>> transactions = await _transactionService.GetTransactionsByUserId(userId, fromDate, untilDate, nextCursor, pageSize);
+            PagedResponse<ICollection<TransactionDto>> transactions = await _transactionService.GetTransactionsByUserId(userId, fromDate, untilDate, nextCursor, pageSize, transactionType, category);
 
             if (!ModelState.IsValid) 
             {

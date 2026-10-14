@@ -9,7 +9,8 @@ interface VerticalGalleryProps<T> {
     emptyMessage?: string,
     isLoading: boolean,
     hasNextPage: boolean,
-    onLoadMore?: () => void
+    onLoadMore?: () => void,
+    maxHeight?: string
 }
 
 function VerticalGallery<T>({
@@ -21,7 +22,8 @@ function VerticalGallery<T>({
     emptyMessage = "No hay elementos para mostrar en este momento",
     isLoading,
     hasNextPage,
-    onLoadMore
+    onLoadMore,
+    maxHeight = '75vh'
 }: VerticalGalleryProps<T>){
     const safeData = Array.isArray(data) ? data : [];
     const observerTarget = useRef<IntersectionObserver | null>(null);
@@ -51,7 +53,7 @@ function VerticalGallery<T>({
                 {header}
             </div>
 
-            <div className='overflow-y-auto max-h-[75vh]'>
+            <div className='overflow-y-auto' style={{ maxHeight }}>
                 {safeData.length === 0 ? (
                     <div className='flex items-center justify-center py-10 text-center text-gray-500 font-medium'>
                         <p>{emptyMessage}</p>
