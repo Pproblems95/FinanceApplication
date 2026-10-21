@@ -1,6 +1,7 @@
 import VerticalGallery from '../../shared/components/VerticalGallery'
 import Calendar from '../../shared/components/Calendar'
 import InfoCard from '../../shared/components/InfoCard'
+import TransactionRegistrationModal from '../../shared/components/TransactionRegistrationModal'
 import { PlusIcon, BriefcaseIcon, MoneyIcon, EditIcon, DeleteIcon } from '../../shared/components/icons'
 import { useAccumulatedTransactionsByType } from '../../shared/hooks/useTransactions'
 import type { TransactionDto } from '../../shared/types/Transaction'
@@ -76,6 +77,7 @@ interface RegistryMonthViewProps {
 function RegistryMonthView({ month, onPreviousMonth, onNextMonth }: RegistryMonthViewProps) {
   const [requestedTransactionByUserId] = useState<number | null>(1);
   const [selectedTransaction, setSelectedTransaction] = useState<TransactionDto | null>(null);
+  const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectedTab = searchParams.get('tab') === OUTCOME_TAB ? OUTCOME_TAB : INCOME_TAB;
@@ -188,7 +190,7 @@ function RegistryMonthView({ month, onPreviousMonth, onNextMonth }: RegistryMont
         <div className='p-4'>
           <button
             type='button'
-            onClick={() => {}}
+            onClick={() => setIsRegistrationModalOpen(true)}
             className='w-full flex flex-row items-center justify-center gap-3 rounded-md py-3 text-sm hover:cursor-pointer'
             style={{ background: ITEM_COLOR }}
           >
@@ -257,6 +259,12 @@ function RegistryMonthView({ month, onPreviousMonth, onNextMonth }: RegistryMont
           </div>
         </div>
       </div>
+
+      <TransactionRegistrationModal
+        isOpen={isRegistrationModalOpen}
+        onClose={() => setIsRegistrationModalOpen(false)}
+        isIncome={isIncomeTab}
+      />
     </div>
   );
 }

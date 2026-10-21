@@ -1,5 +1,5 @@
 import type { IconBaseProps } from 'react-icons/lib';
-import { FaChartSimple, FaMoneyBills, FaFlag, FaCalendarDays, FaGear, FaUser, FaRegCreditCard, FaCirclePlus, FaBriefcase, FaWifi, FaBoxOpen, FaHouse, FaPersonWalking, FaPerson, FaChevronLeft, FaChevronRight, FaPen, FaRectangleXmark } from "react-icons/fa6";
+import { FaChartSimple, FaMoneyBills, FaFlag, FaCalendarDays, FaGear, FaUser, FaRegCreditCard, FaCirclePlus, FaBriefcase, FaWifi, FaBoxOpen, FaHouse, FaPersonWalking, FaPerson, FaChevronLeft, FaChevronRight, FaPen, FaRectangleXmark, FaCaretDown } from "react-icons/fa6";
 import { BiLogOut } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 
@@ -81,4 +81,8 @@ export const EditIcon = (props: IconBaseProps) => (
 
 export const DeleteIcon = (props: IconBaseProps) => (
     <FaRectangleXmark {...props} />
+)
+
+export const CaretDownIcon = (props: IconBaseProps) => (
+    <FaCaretDown {...props} />
 )

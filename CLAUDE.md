@@ -119,7 +119,7 @@ shared/components/   presentational, generic
 ## Language
 
 User-facing error messages are **Spanish**; UI copy and identifiers are **English**. Comments are
-mixed. Match the surrounding file rather than normalizing.
+mixed. Normalize the sorrounding to if it is not in spanish already.
 
 ## Validation, error handling, auth — current state
 
